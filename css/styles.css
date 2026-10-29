@@ -150,21 +150,28 @@ img {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 2.25rem;
+  gap: 1.25rem;
   list-style: none;
   margin-left: auto;
   margin-right: 2rem;
 }
 
 .nav-link {
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 300 !important;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: #ffffff;
   position: relative;
   padding: 0.5rem 0;
   transition: color var(--transition-smooth);
+}
+
+.nav-divider {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 12px;
+  font-weight: 300;
+  user-select: none;
 }
 
 .nav-link:hover,

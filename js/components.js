@@ -28,9 +28,13 @@
 
           <nav class="nav-menu" aria-label="Main Menu">
             <a href="index.html" class="nav-link ${getActive('index.html')}">Home</a>
+            <span class="nav-divider" aria-hidden="true">|</span>
             <a href="menu.html" class="nav-link ${getActive('menu.html')}">Menu</a>
+            <span class="nav-divider" aria-hidden="true">|</span>
             <a href="about.html" class="nav-link ${getActive('about.html')}">About Us</a>
+            <span class="nav-divider" aria-hidden="true">|</span>
             <a href="gallery.html" class="nav-link ${getActive('gallery.html')}">Our Gallery</a>
+            <span class="nav-divider" aria-hidden="true">|</span>
             <a href="contact.html" class="nav-link ${getActive('contact.html')}">Contact</a>
           </nav>
 
