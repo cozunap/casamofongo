@@ -15,10 +15,11 @@
   --color-border: #e8e8e8;
   --color-border-dark: #2a2a2a;
 
-  --font-display: 'Bebas Neue', sans-serif;
-  --font-serif: 'Bebas Neue', sans-serif;
-  --font-sans: 'Outfit', sans-serif;
-  --font-accent: 'Caveat', cursive;
+  --font-display: 'Montserrat', sans-serif;
+  --font-serif: 'Montserrat', sans-serif;
+  --font-sans: 'Montserrat', sans-serif;
+  --font-accent: 'Montserrat', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
 
   --transition-smooth: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --shadow-sm: 0 4px 12px rgba(0,0,0,0.06);
@@ -39,21 +40,26 @@ html {
 
 body {
   font-family: var(--font-sans);
+  font-weight: 400;
   color: var(--color-text-main);
   background-color: var(--color-light-bg);
-  line-height: 1.6;
+  line-height: 1.65;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
   color: var(--color-text-main);
-  line-height: 1.25;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
 }
 
 p {
+  font-family: var(--font-sans);
+  font-weight: 400 !important;
   color: var(--color-text-muted);
 }
 
@@ -422,17 +428,19 @@ img {
 
 .home-hero-title {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 7vw, 5.5rem);
-  font-weight: 400;
+  font-size: clamp(2.4rem, 5.5vw, 4.8rem);
+  font-weight: 900;
   color: #ffffff;
-  line-height: 1.05;
+  line-height: 1.1;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
   margin-bottom: 1.5rem;
 }
 
 .home-hero-desc {
-  font-size: 1.15rem;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 1.12rem;
   color: #e5e5e5;
   max-width: 680px;
   margin: 0 auto 2.5rem;
@@ -509,20 +517,22 @@ img {
 }
 
 .section-sub {
-  font-family: var(--font-accent);
-  font-style: normal;
-  font-size: 1.8rem;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.88rem;
+  letter-spacing: 0.15em;
   color: var(--color-primary);
-  margin-bottom: 0.2rem;
-  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+  display: block;
 }
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(2.3rem, 5vw, 3.4rem);
-  font-weight: 400;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   margin-bottom: 0.85rem;
 }
 
@@ -652,23 +662,26 @@ img {
 }
 
 .menu-card-title {
-  font-family: var(--font-sans);
-  font-size: 1.15rem;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 900;
+  text-transform: uppercase;
   color: var(--color-text-main);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
 }
 
 .menu-card-price {
   font-family: var(--font-display);
-  font-size: 1.45rem;
-  font-weight: 400;
-  letter-spacing: 0.04em;
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
   color: var(--color-primary);
   white-space: nowrap;
 }
 
 .menu-card-desc {
+  font-family: var(--font-sans);
+  font-weight: 400;
   font-size: 0.88rem;
   color: var(--color-text-muted);
   line-height: 1.5;
