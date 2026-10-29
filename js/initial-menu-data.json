@@ -1,0 +1,208 @@
+{
+  "featured_courses": [
+    {
+      "title": "Camarones Encebollados y al Ajillo",
+      "price": "$19.50",
+      "badge": "Chef's Signature Seafood",
+      "description": "Jumbo Caribbean shrimp simmered in virgin olive oil, fragrant minced garlic, saut\u00e9ed onions, sweet bell peppers, and white wine reduction.",
+      "image": "assets/images/Shrimp.webp"
+    },
+    {
+      "title": "Langosta Rellena de Camarones",
+      "price": "$32.00",
+      "badge": "Premium Specialty",
+      "description": "Tender Caribbean rock lobster tail grilled and generously stuffed with garlic shrimp, served with garden salad and golden plantains.",
+      "image": "assets/images/Langosta.webp"
+    },
+    {
+      "title": "Pollo Guisado Tradicional",
+      "price": "$14.50",
+      "badge": "Homestyle Favorite",
+      "description": "Slow-cooked island braised chicken in savory creole tomato sauce infused with oregano, garlic, cilantro, and sweet peppers.",
+      "image": "assets/images/Stewed-Chicken.webp"
+    }
+  ],
+  "menu_cards": [
+    {
+      "name": "Carne de Res Frita",
+      "price": "$16.50",
+      "description": "Tender crispy fried beef chunks seasoned with island mojo.",
+      "category": "",
+      "image": "assets/images/Carne-de-Res-Frita.webp"
+    },
+    {
+      "name": "Sopa de Mondongo",
+      "price": "$14.00",
+      "description": "Authentic Dominican tripe stew with yucca, plantain, and cilantro.",
+      "category": "",
+      "image": "assets/images/Mondongo-Stew.webp"
+    },
+    {
+      "name": "Mofongo Solo",
+      "price": "$9.00",
+      "description": "Hand-mashed green plantain in wooden mortar with garlic mojo.",
+      "category": "",
+      "image": "assets/images/Mofongo-Solo.webp"
+    },
+    {
+      "name": "Trifongo Solo",
+      "price": "$11.00",
+      "description": "Trio mash: green plantain, ripe plantain, and savory cassava.",
+      "category": "",
+      "image": "assets/images/Trifongo-So\u0301lo.webp"
+    },
+    {
+      "name": "Mofongo con Camarones",
+      "price": "$19.50",
+      "description": "Mashed plantain topped with garlic shrimp and rich savory sauce.",
+      "category": "",
+      "image": "assets/images/Shrimp.webp"
+    },
+    {
+      "name": "Mofongo de Pollo",
+      "price": "$15.00",
+      "description": "Served with tender shredded chicken in homemade creole sauce.",
+      "category": "",
+      "image": "assets/images/Mofongo-de-Pollo.webp"
+    },
+    {
+      "name": "Chicharr\u00f3n de Cerdo",
+      "price": "$16.00",
+      "description": "Golden crisp pork belly chunks served with lime wedges and tostones.",
+      "category": "",
+      "image": "assets/images/Plato15.webp"
+    },
+    {
+      "name": "Masita de Cerdo",
+      "price": "$15.50",
+      "description": "Succulent seasoned pork bites fried with onions and lime juice.",
+      "category": "",
+      "image": "assets/images/Masita-de-Cerdo.webp"
+    },
+    {
+      "name": "Chuletas Ahumadas",
+      "price": "$15.00",
+      "description": "Double smoked pork chops grilled with savory island marinade.",
+      "category": "",
+      "image": "assets/images/Chuleta-Ahumada.webp"
+    },
+    {
+      "name": "Longaniza Dominicana",
+      "price": "$13.50",
+      "description": "Country spiced Dominican sausage served hot with tostones.",
+      "category": "",
+      "image": "assets/images/Plato14.webp"
+    },
+    {
+      "name": "Pargo Rojo Frito",
+      "price": "$24.00",
+      "description": "Crispy whole red snapper with garlic sauce and fresh lemon.",
+      "category": "",
+      "image": "assets/images/Red-Snapper.webp"
+    },
+    {
+      "name": "Salm\u00f3n al Ajillo",
+      "price": "$20.00",
+      "description": "Pan-seared Atlantic salmon fillet with white wine herb butter.",
+      "category": "",
+      "image": "assets/images/Salmon.webp"
+    }
+  ],
+  "classic_sides": [],
+  "classic_appetizers": [],
+  "classic_poultry": [],
+  "classic_juices": [],
+  "classic_cocktails": [],
+  "classic_items": [
+    {
+      "name": "Tostones (Fried Green Plantains)",
+      "price": "$4.50",
+      "description": "Crispy twice-fried savory plantain disks."
+    },
+    {
+      "name": "Maduros (Sweet Plantains)",
+      "price": "$4.50",
+      "description": "Golden sweet caramelized plantains."
+    },
+    {
+      "name": "Yuca Frita o Hervida",
+      "price": "$4.50",
+      "description": "Cassava with onions and garlic mojo."
+    },
+    {
+      "name": "Arroz Blanco y Habichuelas",
+      "price": "$5.00",
+      "description": "White rice with seasoned red or black beans."
+    },
+    {
+      "name": "Moro de Guandules",
+      "price": "$6.00",
+      "description": "Rice cooked with pigeon peas and coconut milk."
+    },
+    {
+      "name": "Ensalada Verde de la Casa",
+      "price": "$5.00",
+      "description": "Crisp lettuce, tomatoes, cucumbers, and house dressing."
+    },
+    {
+      "name": "Gran Picadera Dominicana",
+      "price": "$26.00",
+      "description": "Pork chunks, longaniza, fried cheese, salami, tostones."
+    },
+    {
+      "name": "Pastelitos de Carne o Queso",
+      "price": "$3.00",
+      "description": "Golden crisp turnovers filled with seasoned meat or cheese."
+    },
+    {
+      "name": "Queso Frito con Tostones",
+      "price": "$9.00",
+      "description": "Fried tropical cheese with pressed green plantains."
+    },
+    {
+      "name": "Pechuga de Pollo a la Plancha",
+      "price": "$14.50",
+      "description": "Grilled chicken breast seasoned with fresh garlic & lemon."
+    },
+    {
+      "name": "Chicharr\u00f3n de Pollo",
+      "price": "$13.50",
+      "description": "Crisp marinated bone-in chicken bites."
+    },
+    {
+      "name": "Kids' Chicken Tenders",
+      "price": "$8.50",
+      "description": "Served with french fries for kids under 12."
+    },
+    {
+      "name": "Morir So\u00f1ando",
+      "price": "$5.50",
+      "description": "Fresh orange juice, evaporated milk, and cane sugar."
+    },
+    {
+      "name": "Jugo de Chinola (Passion Fruit)",
+      "price": "$5.00",
+      "description": "Pure tart tropical passion fruit nectar."
+    },
+    {
+      "name": "Jugo de Guan\u00e1bana (Soursop)",
+      "price": "$5.00",
+      "description": "Creamy tropical soursop smoothie."
+    },
+    {
+      "name": "Classic Caribbean Mojito",
+      "price": "$11.00",
+      "description": "White rum, fresh mint, lime juice, cane sugar, soda."
+    },
+    {
+      "name": "Pi\u00f1a Colada Tropical",
+      "price": "$11.50",
+      "description": "Coconut cream, fresh pineapple juice, and aged rum."
+    },
+    {
+      "name": "Cerveza Presidente Fr\u00eda",
+      "price": "$6.00",
+      "description": "The iconic Dominican pilsner served ice cold."
+    }
+  ]
+}

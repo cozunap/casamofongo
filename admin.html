@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal | La Casa Del Mofongo Management</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css?v=4.2">
+  <style>
+    body {
+      background: #0d0d0d;
+      color: #e5e5e5;
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .admin-nav {
+      background: #161616;
+      border-bottom: 2px solid var(--color-primary);
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .admin-brand img {
+      height: 48px;
+    }
+
+    .admin-brand span {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.05em;
+    }
+
+    .admin-badge {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .admin-wrapper {
+      max-width: 1280px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      flex: 1;
+      width: 100%;
+    }
+
+    .admin-tabs {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 1px solid #282828;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .admin-tab {
+      background: transparent;
+      border: none;
+      color: #888888;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.25s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .admin-tab.active {
+      color: #ffffff;
+      border-bottom-color: var(--color-primary);
+      background: rgba(167, 13, 28, 0.08);
+    }
+
+    .admin-card {
+      background: #181818;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .admin-table th {
+      padding: 1rem;
+      background: #202020;
+      color: #bbbbbb;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 1px solid #333333;
+    }
+
+    .admin-table td {
+      padding: 1rem;
+      border-bottom: 1px solid #242424;
+      vertical-align: middle;
+      font-size: 0.92rem;
+    }
+
+    .admin-table tr:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .table-img {
+      width: 58px;
+      height: 52px;
+      border-radius: 4px;
+      object-fit: cover;
+      border: 1px solid #333333;
+    }
+
+    .btn-admin {
+      background: var(--color-primary);
+      color: #ffffff;
+      border: none;
+      padding: 0.55rem 1.1rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-admin:hover {
+      background: var(--color-primary-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-admin-danger {
+      background: #551414;
+      color: #ff9999;
+    }
+
+    .btn-admin-danger:hover {
+      background: #881c1c;
+      color: #ffffff;
+    }
+
+    .btn-admin-secondary {
+      background: #2c2c2c;
+      color: #cccccc;
+    }
+
+    .btn-admin-secondary:hover {
+      background: #3e3e3e;
+      color: #ffffff;
+    }
+
+    /* Modal Styling */
+    .admin-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .admin-modal-overlay.open {
+      display: flex;
+    }
+
+    .admin-modal {
+      background: #181818;
+      border: 1px solid #333333;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 560px;
+      padding: 2rem;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8);
+    }
+
+    .admin-input-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .admin-input-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #aaaaaa;
+      margin-bottom: 0.4rem;
+    }
+
+    .admin-input {
+      width: 100%;
+      background: #111111;
+      border: 1px solid #333333;
+      color: #ffffff;
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+
+    .admin-input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+
+    /* Auth Screen */
+    .auth-container {
+      max-width: 420px;
+      margin: 6rem auto;
+      background: #181818;
+      border: 1px solid #333333;
+      border-radius: 8px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    }
+
+    .auth-logo {
+      height: 80px;
+      margin-bottom: 1.5rem;
+    }
+
+    .status-toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #15451e;
+      border: 1px solid #238b3a;
+      color: #ffffff;
+      padding: 1rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      z-index: 99999;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login Gate -->
+  <div id="auth-screen" class="auth-container">
+    <img src="assets/images/logo.svg" alt="La Casa Del Mofongo" class="auth-logo">
+    <h2 style="font-family: var(--font-serif); margin-bottom: 0.5rem; color: #ffffff;">Admin CMS Portal</h2>
+    <p style="color: #888888; font-size: 0.9rem; margin-bottom: 2rem;">Manage dishes, descriptions, prices and media.</p>
+    
+    <form id="auth-form">
+      <div class="admin-input-group" style="text-align: left;">
+        <label>Passcode / Master Key</label>
+        <input type="password" id="auth-password" class="admin-input" placeholder="Enter admin passcode" required>
+      </div>
+      <button type="submit" class="btn-admin" style="width: 100%; justify-content: center; padding: 0.85rem;">Login to Dashboard</button>
+      <p id="auth-error" style="color: #ff5555; font-size: 0.85rem; margin-top: 1rem; display: none;">Invalid Passcode. Please try again.</p>
+    </form>
+  </div>
+
+  <!-- Main Dashboard (Protected) -->
+  <div id="admin-panel" style="display: none; flex-direction: column; min-height: 100vh;">
+    
+    <header class="admin-nav">
+      <div class="admin-brand">
+        <img src="assets/images/logo.svg" alt="Logo">
+        <span>La Casa Del Mofongo</span>
+        <span class="admin-badge">CMS BACKEND</span>
+      </div>
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <a href="index.html" target="_blank" class="btn-admin btn-admin-secondary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          View Live Site
+        </a>
+        <button id="logout-btn" class="btn-admin btn-admin-danger">Logout</button>
+      </div>
+    </header>
+
+    <main class="admin-wrapper">
+      
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-tab="menu">Menu Cards (12 Dishes)</button>
+        <button class="admin-tab" data-tab="featured">Featured Courses (3 Entrees)</button>
+        <button class="admin-tab" data-tab="media">Media &amp; Images Library</button>
+        <button class="admin-tab" data-tab="settings">Export / Cloud Sync</button>
+      </div>
+
+      <!-- Tab: Menu Cards -->
+      <section id="tab-menu" class="admin-tab-content">
+        <div class="admin-card" style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h3 style="font-size: 1.25rem; font-family: var(--font-serif); margin-bottom: 0.25rem;">Food &amp; Beverage Menu Dishes</h3>
+            <p style="color: #888888; font-size: 0.88rem;">Edit names, descriptions, categories, and prices. Changes update the live site immediately.</p>
+          </div>
+          <button id="add-dish-btn" class="btn-admin">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            Add New Dish
+          </button>
+        </div>
+
+        <div class="admin-card" style="padding: 0; overflow-x: auto;">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th style="width: 80px;">Image</th>
+                <th>Dish Name</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th style="width: 100px;">Price</th>
+                <th style="width: 160px; text-align: right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="menu-items-table-body">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Tab: Featured Courses -->
+      <section id="tab-featured" class="admin-tab-content" style="display: none;">
+        <div class="admin-card">
+          <h3 style="font-size: 1.25rem; font-family: var(--font-serif); margin-bottom: 0.25rem;">Featured Chef Entrees</h3>
+          <p style="color: #888888; font-size: 0.88rem;">Special highlights shown on the main menu page (Garlic Shrimp, Lobster, Pollo Guisado).</p>
+        </div>
+
+        <div class="admin-card" style="padding: 0; overflow-x: auto;">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th style="width: 80px;">Image</th>
+                <th>Entree Name</th>
+                <th>Badge</th>
+                <th>Description</th>
+                <th style="width: 100px;">Price</th>
+                <th style="width: 120px; text-align: right;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="featured-items-table-body">
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Tab: Media Library -->
+      <section id="tab-media" class="admin-tab-content" style="display: none;">
+        <div class="admin-card">
+          <h3 style="font-size: 1.25rem; font-family: var(--font-serif); margin-bottom: 0.25rem;">Assets &amp; Culinary Photography Library</h3>
+          <p style="color: #888888; font-size: 0.88rem;">All high-resolution culinary photography available in the assets folder.</p>
+        </div>
+        <div id="media-grid-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem;">
+          <!-- Rendered via JS -->
+        </div>
+      </section>
+
+      <!-- Tab: Settings / Sync -->
+      <section id="tab-settings" class="admin-tab-content" style="display: none;">
+        <div class="admin-card">
+          <h3 style="font-size: 1.25rem; font-family: var(--font-serif); margin-bottom: 0.5rem;">Database Sync &amp; Backup</h3>
+          <p style="color: #888888; font-size: 0.9rem; margin-bottom: 1.5rem;">
+            Export the current live configuration or reset all values back to original defaults.
+          </p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button id="export-json-btn" class="btn-admin btn-admin-secondary">Download Backup (JSON)</button>
+            <button id="reset-defaults-btn" class="btn-admin btn-admin-danger">Reset to System Defaults</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Edit/Add Modal -->
+  <div id="edit-modal" class="admin-modal-overlay">
+    <div class="admin-modal">
+      <h3 id="modal-title" style="font-family: var(--font-serif); font-size: 1.35rem; margin-bottom: 1.25rem; color: #ffffff;">Edit Dish</h3>
+      
+      <form id="dish-form">
+        <input type="hidden" id="dish-index">
+        <input type="hidden" id="dish-type" value="menu">
+
+        <div class="admin-input-group">
+          <label>Dish Name</label>
+          <input type="text" id="dish-name" class="admin-input" required>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="admin-input-group">
+            <label>Price</label>
+            <input type="text" id="dish-price" class="admin-input" placeholder="$0.00" required>
+          </div>
+
+          <div class="admin-input-group">
+            <label>Category (for Filters)</label>
+            <select id="dish-category" class="admin-input">
+              <option value="mofongos">Mofongos</option>
+              <option value="meats">Meats &amp; Pork Chops</option>
+              <option value="seafood">Seafood &amp; Shrimps</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="admin-input-group">
+          <label>Description</label>
+          <textarea id="dish-desc" class="admin-input" rows="3" style="resize: vertical;"></textarea>
+        </div>
+
+        <div class="admin-input-group">
+          <label>Image File Path</label>
+          <input type="text" id="dish-img" class="admin-input" placeholder="assets/images/Plato1.webp" required>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 2rem;">
+          <button type="button" id="modal-cancel-btn" class="btn-admin btn-admin-secondary">Cancel</button>
+          <button type="submit" class="btn-admin">Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="status-toast">Changes saved successfully!</div>
+
+  <script src="js/cms.js?v=4.2"></script>
+  <script>
+    (async function() {
+      const AUTH_PASS = 'mofongo2026'; // Admin Passcode
+      const authScreen = document.getElementById('auth-screen');
+      const adminPanel = document.getElementById('admin-panel');
+      const authForm = document.getElementById('auth-form');
+      const authPass = document.getElementById('auth-password');
+      const authError = document.getElementById('auth-error');
+      const logoutBtn = document.getElementById('logout-btn');
+      const toast = document.getElementById('toast');
+
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.style.display = 'block';
+        setTimeout(() => { toast.style.display = 'none'; }, 3000);
+      }
+
+      // Check Login State
+      if (sessionStorage.getItem('mofongo_admin_logged') === 'true') {
+        authScreen.style.display = 'none';
+        adminPanel.style.display = 'flex';
+      }
+
+      authForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (authPass.value.trim() === AUTH_PASS) {
+          sessionStorage.setItem('mofongo_admin_logged', 'true');
+          authScreen.style.display = 'none';
+          adminPanel.style.display = 'flex';
+        } else {
+          authError.style.display = 'block';
+        }
+      });
+
+      logoutBtn.addEventListener('click', () => {
+        sessionStorage.removeItem('mofongo_admin_logged');
+        window.location.reload();
+      });
+
+      // Tabs
+      const tabs = document.querySelectorAll('.admin-tab');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          const target = tab.getAttribute('data-tab');
+          document.querySelectorAll('.admin-tab-content').forEach(c => c.style.display = 'none');
+          document.getElementById('tab-' + target).style.display = 'block';
+        });
+      });
+
+      // Init CMS Data
+      await window.CMSService.init();
+      renderMenuCards();
+      renderFeaturedCourses();
+      loadMediaLibrary();
+
+      function renderMenuCards() {
+        const tableBody = document.getElementById('menu-items-table-body');
+        const cards = window.CMSService.getMenuCards();
+        tableBody.innerHTML = cards.map((item, idx) => `
+          <tr>
+            <td><img src="${item.image}" alt="${item.name}" class="table-img"></td>
+            <td><strong>${item.name}</strong></td>
+            <td><span class="admin-badge" style="background: #333;">${item.category || 'all'}</span></td>
+            <td style="color: #aaa; max-width: 320px;">${item.description}</td>
+            <td style="color: var(--color-primary-light); font-weight: 700; font-family: var(--font-serif);">${item.price}</td>
+            <td style="text-align: right;">
+              <button class="btn-admin btn-admin-secondary edit-dish-btn" data-index="${idx}" style="padding: 0.35rem 0.75rem;">Edit</button>
+              <button class="btn-admin btn-admin-danger del-dish-btn" data-index="${idx}" style="padding: 0.35rem 0.75rem;">Delete</button>
+            </td>
+          </tr>
+        `).join('');
+
+        // Attach listeners
+        tableBody.querySelectorAll('.edit-dish-btn').forEach(b => {
+          b.addEventListener('click', () => openEditModal(parseInt(b.dataset.index), 'menu'));
+        });
+        tableBody.querySelectorAll('.del-dish-btn').forEach(b => {
+          b.addEventListener('click', () => {
+            if (confirm('Are you sure you want to delete this dish?')) {
+              window.CMSService.deleteMenuCard(parseInt(b.dataset.index));
+              renderMenuCards();
+              showToast('Dish deleted');
+            }
+          });
+        });
+      }
+
+      function renderFeaturedCourses() {
+        const tableBody = document.getElementById('featured-items-table-body');
+        const items = window.CMSService.getFeaturedCourses();
+        tableBody.innerHTML = items.map((item, idx) => `
+          <tr>
+            <td><img src="${item.image}" alt="${item.title}" class="table-img"></td>
+            <td><strong>${item.title}</strong></td>
+            <td><span class="admin-badge">${item.badge || 'Featured'}</span></td>
+            <td style="color: #aaa; max-width: 320px;">${item.description}</td>
+            <td style="color: var(--color-primary-light); font-weight: 700; font-family: var(--font-serif);">${item.price}</td>
+            <td style="text-align: right;">
+              <button class="btn-admin btn-admin-secondary edit-feat-btn" data-index="${idx}" style="padding: 0.35rem 0.75rem;">Edit</button>
+            </td>
+          </tr>
+        `).join('');
+
+        tableBody.querySelectorAll('.edit-feat-btn').forEach(b => {
+          b.addEventListener('click', () => openEditModal(parseInt(b.dataset.index), 'featured'));
+        });
+      }
+
+      async function loadMediaLibrary() {
+        const container = document.getElementById('media-grid-container');
+        try {
+          const res = await fetch('js/available-assets.json');
+          if (res.ok) {
+            const list = await res.json();
+            container.innerHTML = list.map(f => `
+              <div style="background: #202020; border-radius: 4px; padding: 0.5rem; text-align: center; border: 1px solid #333;">
+                <img src="assets/images/${f}" alt="${f}" style="width: 100%; height: 110px; object-fit: cover; border-radius: 2px;">
+                <p style="font-size: 0.7rem; color: #888; margin-top: 0.4rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${f}</p>
+                <button class="btn-admin btn-admin-secondary copy-path-btn" data-path="assets/images/${f}" style="width: 100%; justify-content: center; font-size: 0.68rem; padding: 0.25rem;">Copy Path</button>
+              </div>
+            `).join('');
+
+            container.querySelectorAll('.copy-path-btn').forEach(b => {
+              b.addEventListener('click', () => {
+                navigator.clipboard.writeText(b.dataset.path);
+                showToast('Copied path: ' + b.dataset.path);
+              });
+            });
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      // Modal Handling
+      const modal = document.getElementById('edit-modal');
+      const form = document.getElementById('dish-form');
+      const dishIndex = document.getElementById('dish-index');
+      const dishType = document.getElementById('dish-type');
+      const dishName = document.getElementById('dish-name');
+      const dishPrice = document.getElementById('dish-price');
+      const dishDesc = document.getElementById('dish-desc');
+      const dishImg = document.getElementById('dish-img');
+      const dishCat = document.getElementById('dish-category');
+      const cancelBtn = document.getElementById('modal-cancel-btn');
+      const addDishBtn = document.getElementById('add-dish-btn');
+
+      function openEditModal(idx, type) {
+        dishType.value = type;
+        dishIndex.value = idx;
+        if (type === 'menu') {
+          const item = window.CMSService.getMenuCards()[idx];
+          dishName.value = item.name;
+          dishPrice.value = item.price;
+          dishDesc.value = item.description;
+          dishImg.value = item.image;
+          dishCat.value = item.category || 'mofongos';
+          dishCat.parentElement.style.display = 'block';
+          document.getElementById('modal-title').textContent = 'Edit Menu Dish';
+        } else {
+          const item = window.CMSService.getFeaturedCourses()[idx];
+          dishName.value = item.title;
+          dishPrice.value = item.price;
+          dishDesc.value = item.description;
+          dishImg.value = item.image;
+          dishCat.parentElement.style.display = 'none';
+          document.getElementById('modal-title').textContent = 'Edit Featured Course';
+        }
+        modal.classList.add('open');
+      }
+
+      addDishBtn.addEventListener('click', () => {
+        dishType.value = 'menu';
+        dishIndex.value = '-1';
+        dishName.value = '';
+        dishPrice.value = '$';
+        dishDesc.value = '';
+        dishImg.value = 'assets/images/Mofongo-Solo.webp';
+        dishCat.parentElement.style.display = 'block';
+        document.getElementById('modal-title').textContent = 'Add New Menu Dish';
+        modal.classList.add('open');
+      });
+
+      cancelBtn.addEventListener('click', () => modal.classList.remove('open'));
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const idx = parseInt(dishIndex.value);
+        const type = dishType.value;
+
+        if (type === 'menu') {
+          const itemData = {
+            name: dishName.value.trim(),
+            price: dishPrice.value.trim(),
+            description: dishDesc.value.trim(),
+            image: dishImg.value.trim(),
+            category: dishCat.value
+          };
+          if (idx >= 0) {
+            await window.CMSService.updateMenuCard(idx, itemData);
+          } else {
+            await window.CMSService.addMenuCard(itemData);
+          }
+          renderMenuCards();
+        } else {
+          const itemData = {
+            title: dishName.value.trim(),
+            price: dishPrice.value.trim(),
+            description: dishDesc.value.trim(),
+            image: dishImg.value.trim()
+          };
+          await window.CMSService.updateFeaturedCourse(idx, itemData);
+          renderFeaturedCourses();
+        }
+
+        modal.classList.remove('open');
+        showToast('Changes saved to live website!');
+      });
+
+      // Settings
+      document.getElementById('export-json-btn').addEventListener('click', () => {
+        const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(window.CMSService.getData(), null, 2));
+        const dl = document.createElement('a');
+        dl.setAttribute('href', dataStr);
+        dl.setAttribute('download', 'lacasadelmofongo_cms_backup.json');
+        dl.click();
+      });
+
+      document.getElementById('reset-defaults-btn').addEventListener('click', async () => {
+        if (confirm('Are you sure you want to reset all modifications back to default?')) {
+          await window.CMSService.resetToDefault();
+          renderMenuCards();
+          renderFeaturedCourses();
+          showToast('Reset to defaults');
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>

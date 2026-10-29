@@ -444,6 +444,29 @@
   <div id="footer-placeholder"></div>
 
   <!-- Shared Scripts -->
+  <script src="js/cms.js?v=4.2"></script>
   <script src="js/components.js?v=4.2"></script>
+  <script>
+    // Live CMS Data binding for Menu page
+    (async function() {
+      await window.CMSService.init();
+      const cards = window.CMSService.getMenuCards();
+      const grid = document.getElementById('menu-items-grid');
+      if (cards && cards.length && grid) {
+        grid.innerHTML = cards.map(item => `
+          <div class="menu-card" data-category="${item.category || 'all'}">
+            <img src="${item.image}" alt="${item.name}" class="menu-card-img">
+            <div class="menu-card-body">
+              <div class="menu-card-header">
+                <h3 class="menu-card-title">${item.name}</h3>
+                <span class="menu-card-price">${item.price}</span>
+              </div>
+              <p class="menu-card-desc">${item.description}</p>
+            </div>
+          </div>
+        `).join('');
+      }
+    })();
+  </script>
 </body>
 </html>
