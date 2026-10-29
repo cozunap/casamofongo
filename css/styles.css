@@ -521,6 +521,19 @@ img {
   margin-bottom: 0.85rem;
 }
 
+.single-line-header {
+  font-size: clamp(1.4rem, 2.8vw, 2.4rem);
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .single-line-header {
+    font-size: clamp(0.95rem, 4.4vw, 1.35rem);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+}
+
 .section-desc {
   color: var(--color-text-muted);
   font-size: 1rem;
