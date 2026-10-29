@@ -15,8 +15,10 @@
   --color-border: #e8e8e8;
   --color-border-dark: #2a2a2a;
 
-  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-serif: 'Bebas Neue', sans-serif;
+  --font-sans: 'Outfit', sans-serif;
+  --font-accent: 'Caveat', cursive;
 
   --transition-smooth: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --shadow-sm: 0 4px 12px rgba(0,0,0,0.06);
@@ -419,12 +421,13 @@ img {
 }
 
 .home-hero-title {
-  font-size: clamp(2.4rem, 6vw, 4.5rem);
-  font-weight: 900;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 400;
   color: #ffffff;
-  line-height: 1.15;
+  line-height: 1.05;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   margin-bottom: 1.5rem;
 }
 
@@ -506,18 +509,20 @@ img {
 }
 
 .section-sub {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.35rem;
+  font-family: var(--font-accent);
+  font-style: normal;
+  font-size: 1.8rem;
   color: var(--color-primary);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.04em;
 }
 
 .section-title {
-  font-size: clamp(2rem, 4vw, 2.85rem);
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: clamp(2.3rem, 5vw, 3.4rem);
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   margin-bottom: 0.85rem;
 }
 
@@ -647,16 +652,18 @@ img {
 }
 
 .menu-card-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--color-text-main);
+  letter-spacing: -0.01em;
 }
 
 .menu-card-price {
-  font-family: var(--font-serif);
-  font-weight: 700;
-  font-size: 1.15rem;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
   color: var(--color-primary);
   white-space: nowrap;
 }
