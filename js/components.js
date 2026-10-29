@@ -253,7 +253,7 @@
 
   // 6. Interactive Lightbox Gallery Slider
   function initGalleryLightbox() {
-    const galleryItems = Array.from(document.querySelectorAll('.gallery-grid .gallery-item, .responsive-tri-grid .gallery-item, .dishes-strip-grid img'));
+    const galleryItems = Array.from(document.querySelectorAll('.gallery-grid .gallery-item, .responsive-tri-grid .gallery-item, .dishes-carousel-slide img, .dishes-strip-grid img'));
     if (!galleryItems.length) return;
 
     // Create Modal DOM
@@ -382,14 +382,82 @@
     }, { passive: true });
   }
 
+  // 7. Dishes Continuous Carousel Slider Controller
+  function initDishesCarousel() {
+    const track = document.getElementById('dishes-carousel-track');
+    const prevBtn = document.getElementById('dishes-prev-btn');
+    const nextBtn = document.getElementById('dishes-next-btn');
+    if (!track) return;
+
+    let autoScrollTimer = null;
+    let isPaused = false;
+
+    function getScrollStep() {
+      const slide = track.querySelector('.dishes-carousel-slide');
+      return slide ? slide.offsetWidth * 2 : 300;
+    }
+
+    function scrollNext() {
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      if (track.scrollLeft >= maxScroll - 10) {
+        track.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        track.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+      }
+    }
+
+    function scrollPrev() {
+      if (track.scrollLeft <= 10) {
+        track.scrollTo({ left: track.scrollWidth - track.clientWidth, behavior: 'smooth' });
+      } else {
+        track.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+      }
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        scrollNext();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        scrollPrev();
+      });
+    }
+
+    // Auto scroll every 3.5 seconds
+    function startAutoScroll() {
+      if (autoScrollTimer) clearInterval(autoScrollTimer);
+      autoScrollTimer = setInterval(() => {
+        if (!isPaused) {
+          scrollNext();
+        }
+      }, 3500);
+    }
+
+    track.addEventListener('mouseenter', () => { isPaused = true; });
+    track.addEventListener('mouseleave', () => { isPaused = false; });
+    track.addEventListener('touchstart', () => { isPaused = true; }, { passive: true });
+    track.addEventListener('touchend', () => {
+      setTimeout(() => { isPaused = false; }, 2000);
+    }, { passive: true });
+
+    startAutoScroll();
+  }
+
   // Run initialization
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       init3DEffects();
       initGalleryLightbox();
+      initDishesCarousel();
     });
   } else {
     init3DEffects();
     initGalleryLightbox();
+    initDishesCarousel();
   }
 })();

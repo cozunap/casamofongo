@@ -1347,18 +1347,108 @@ img {
   display: block;
 }
 
-.dishes-strip-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 0;
+/* Dishes Carousel Slider Component */
+.dishes-carousel-section {
+  position: relative;
+  width: 100%;
   overflow: hidden;
-  max-height: 200px;
+  background: #0d0d0d;
+  padding: 0;
 }
 
-.dishes-strip-grid img {
+.dishes-carousel-wrapper {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  gap: 0;
   width: 100%;
-  height: 200px;
+}
+
+.dishes-carousel-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.dishes-carousel-slide {
+  flex: 0 0 calc(100% / 6);
+  min-width: 200px;
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.dishes-carousel-slide img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.dishes-carousel-slide:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+
+.dishes-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  background: rgba(17, 17, 17, 0.85);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.dishes-carousel-arrow:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.dishes-carousel-arrow.prev {
+  left: 1.5rem;
+}
+
+.dishes-carousel-arrow.next {
+  right: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .dishes-carousel-slide {
+    flex: 0 0 calc(100% / 4);
+    height: 190px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dishes-carousel-slide {
+    flex: 0 0 calc(100% / 2.5);
+    height: 170px;
+  }
+  .dishes-carousel-arrow {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dishes-carousel-slide {
+    flex: 0 0 75%;
+    height: 180px;
+  }
 }
 
 .menu-feature-row {
