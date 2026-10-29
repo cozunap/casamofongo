@@ -1101,6 +1101,91 @@ img {
   }
 }
 
+/* Map Marker & Interactive Pin */
+.map-container-wrapper {
+  position: relative;
+  line-height: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.map-custom-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  z-index: 10;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.45));
+  animation: mapPinBounce 2.5s ease-in-out infinite;
+  text-decoration: none;
+}
+
+.map-marker-pin {
+  width: 64px;
+  height: 64px;
+  background: #ffffff;
+  border: 3.5px solid var(--color-primary);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(167, 13, 28, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-marker-pin img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  transform: rotate(45deg);
+}
+
+.map-marker-shadow {
+  width: 24px;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 50%;
+  margin-top: 4px;
+}
+
+.map-marker-label {
+  background: var(--color-primary);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  white-space: nowrap;
+  margin-bottom: 6px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.map-custom-marker:hover .map-marker-pin {
+  transform: rotate(-45deg) scale(1.12);
+  border-color: var(--color-primary-light);
+  box-shadow: 0 8px 25px rgba(167, 13, 28, 0.6);
+}
+
+@keyframes mapPinBounce {
+  0%, 100% {
+    transform: translate(-50%, -100%);
+  }
+  50% {
+    transform: translate(-50%, -115%);
+  }
+}
+
 /* ==========================================================================
    Responsive Breakpoints
    ========================================================================== */

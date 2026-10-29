@@ -11,7 +11,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/styles.css?v=3.3">
+  <link rel="stylesheet" href="css/styles.css?v=3.4">
+  <!-- Favicon -->
+  <link rel=icon type=image/x-icon href=favicon.ico>
+  <link rel=icon type=image/png sizes=32x32 href=favicon-32x32.png>
+  <link rel=icon type=image/png sizes=192x192 href=favicon-192x192.png>
+  <link rel=apple-touch-icon sizes=180x180 href=apple-touch-icon.png>
 </head>
 <body>
 
@@ -163,8 +168,17 @@
     </div>
   </section>
 
-  <!-- Google Maps Interactive Frame -->
-  <section style="line-height: 0;">
+  <!-- Google Maps Interactive Frame with Custom Logo Marker -->
+  <section class="map-container-wrapper">
+    <a href="https://maps.google.com/?q=9441+Georgia+Ave+Silver+Spring+MD+20910+United+States" target="_blank" rel="noopener noreferrer" class="map-custom-marker" aria-label="Open in Google Maps">
+      <div class="map-marker-label">
+        <span>La Casa Del Mofongo</span>
+      </div>
+      <div class="map-marker-pin">
+        <img src="assets/images/map-marker-logo.png" alt="La Casa Del Mofongo Pin">
+      </div>
+      <div class="map-marker-shadow"></div>
+    </a>
     <iframe 
       title="La Casa Del Mofongo Location Map"
       src="https://maps.google.com/maps?q=9441+Georgia+Ave,+Silver+Spring,+MD+20910&t=&z=15&ie=UTF8&iwloc=&output=embed" 
