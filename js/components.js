@@ -11,26 +11,28 @@
 
   const i18n = {
     es: {
-      brandSub: 'Sabor Dominicano & Caribeño • Maryland',
+      brandSub: 'Comida Caribeña & Latina Casera • Maryland',
       navHome: 'Inicio',
       navMenuSneak: 'Especialidades',
       navLocations: 'Ubicación & Horario',
       navContact: 'Contacto',
       navVIP: 'Acceso VIP',
       rights: 'Todos los derechos reservados.',
-      locationSummary: '9441 Georgia Ave, Silver Spring, MD 20910',
-      openHours: 'Lunes a Domingo: 11:00 AM – 10:00 PM'
+      locationSummary: '9441 Georgia Ave, Silver Spring, MD 20910, Estados Unidos',
+      openHours: 'Abierto todos los días • Cierra a las 10:00 PM',
+      phone: '+1 240-863-3750'
     },
     en: {
-      brandSub: 'Dominican & Caribbean Cuisine • Maryland',
+      brandSub: 'Homestyle Caribbean & Latin Fare • Maryland',
       navHome: 'Home',
       navMenuSneak: 'Specialties',
       navLocations: 'Location & Hours',
       navContact: 'Contact',
       navVIP: 'VIP Access',
       rights: 'All rights reserved.',
-      locationSummary: '9441 Georgia Ave, Silver Spring, MD 20910',
-      openHours: 'Monday to Sunday: 11:00 AM – 10:00 PM'
+      locationSummary: '9441 Georgia Ave, Silver Spring, MD 20910, United States',
+      openHours: 'Open daily • Closes 10:00 PM',
+      phone: '+1 240-863-3750'
     }
   };
 
@@ -121,7 +123,7 @@
               La Casa Del <span class="highlight">Mofongo</span>
             </div>
             <p>
-              El destino por excelencia de la auténtica gastronomía dominicana y caribeña en Silver Spring, Maryland y el área metropolitana de Washington D.C. Mofongos y trifongos artesanales, chicharrón crocante y jugos naturales.
+              Homestyle Caribbean &amp; Latin fare, such as mashed plantains &amp; pork chops, in a comfortable welcoming space with TVs. Disfruta de happy hour, cocteles artesanales y menú infantil en Silver Spring, MD.
             </p>
           </div>
 
@@ -139,15 +141,16 @@
             <h4>Ubicación &amp; Contacto</h4>
             <ul class="footer-links">
               <li><strong>Dirección:</strong> 9441 Georgia Ave, Silver Spring, MD 20910</li>
-              <li><strong>Teléfono:</strong> <a href="tel:+12408633750" style="color: var(--color-gold);">(240) 863-3750</a></li>
-              <li><strong>Horario:</strong> Todos los días 11:00 AM – 10:00 PM</li>
+              <li><strong>Teléfono:</strong> <a href="tel:+12408633750" style="color: var(--color-gold);">+1 240-863-3750</a></li>
+              <li><strong>Horario:</strong> Abierto &bull; Cierra a las 10:00 PM</li>
+              <li style="color: var(--color-gold-light); font-size: 0.85rem; margin-top: 0.25rem;">Happy hour food &bull; Cocteles &bull; Menú infantil</li>
             </ul>
           </div>
         </div>
 
         <div class="footer-bottom">
           <p>&copy; ${new Date().getFullYear()} La Casa Del Mofongo. ${texts.rights}</p>
-          <p style="color: var(--color-gold-light);">Silver Spring, Maryland &bull; Próximamente Nueva Plataforma Web</p>
+          <p style="color: var(--color-gold-light);">9441 Georgia Ave, Silver Spring, MD 20910 &bull; United States</p>
         </div>
       </footer>
     `;
@@ -196,8 +199,8 @@
       if (input && input.value) {
         if (feedback) {
           feedback.textContent = isSpanish 
-            ? '¡Gracias! Te notificaremos de primero cuando lancemos el menú completo y pedidos en línea en Maryland.' 
-            : 'Thank you! We will notify you first when our full menu and online ordering launch in Maryland.';
+            ? '¡Gracias! Te notificaremos de primero sobre el lanzamiento web, promociones de happy hour y pedidos online.' 
+            : 'Thank you! We will notify you first regarding our web launch, happy hour specials, and online ordering.';
           feedback.classList.add('is-visible');
         }
         input.value = '';
