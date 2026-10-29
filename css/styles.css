@@ -1,10 +1,11 @@
 :root {
-  --color-primary: #a81c1c;        /* Rich Crimson Red */
-  --color-primary-dark: #7a1111;   /* Deep Wine */
-  --color-primary-light: #c92c2c;
+  /* Exact Branding Red extracted from original templates & screenshots */
+  --color-primary: #a70d1c;        /* Official Brand Crimson Red (#a70d1c) */
+  --color-primary-dark: #820914;   /* Deep Shade */
+  --color-primary-light: #ce2305;  /* Vibrant Accent Red (#ce2305) */
   --color-accent: #cfa670;         /* Grand Restaurant Gold */
   --color-accent-light: #dfbe7f;
-  --color-dark-bg: #111111;        /* Midnight Dark */
+  --color-dark-bg: #111111;
   --color-dark-surface: #181818;
   --color-light-bg: #ffffff;
   --color-light-surface: #f9f9f9;
@@ -16,7 +17,6 @@
 
   --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-script: 'Playfair Display', cursive, serif;
 
   --transition-smooth: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --shadow-sm: 0 4px 12px rgba(0,0,0,0.06);
@@ -82,11 +82,11 @@ img {
 
 .site-header.is-sticky {
   position: fixed;
-  background: rgba(17, 17, 17, 0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  background: rgba(17, 17, 17, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 2px solid var(--color-primary);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
 .header-container {
@@ -105,8 +105,8 @@ img {
 }
 
 .header-logo-img {
-  width: 54px;
-  height: 54px;
+  width: 56px;
+  height: 56px;
   object-fit: contain;
   filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
 }
@@ -129,8 +129,8 @@ img {
   font-size: 0.68rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--color-accent);
-  font-weight: 600;
+  color: var(--color-primary-light);
+  font-weight: 700;
 }
 
 .nav-menu {
@@ -142,7 +142,7 @@ img {
 
 .nav-link {
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: #ffffff;
@@ -152,7 +152,7 @@ img {
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--color-accent);
+  color: var(--color-primary-light);
 }
 
 .nav-link.active::after {
@@ -185,7 +185,7 @@ img {
   border-color: var(--color-primary);
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(168, 28, 28, 0.4);
+  box-shadow: 0 4px 15px rgba(167, 13, 28, 0.5);
 }
 
 .mobile-menu-btn {
@@ -201,7 +201,7 @@ img {
   display: none;
   flex-direction: column;
   background: #111111;
-  border-top: 1px solid var(--color-border-dark);
+  border-top: 2px solid var(--color-primary);
   padding: 1.5rem 2rem;
   gap: 1.25rem;
 }
@@ -213,7 +213,7 @@ img {
 .mobile-nav-drawer a {
   color: #ffffff;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 0.4rem 0;
@@ -221,7 +221,7 @@ img {
 }
 
 .mobile-nav-drawer a.active {
-  color: var(--color-accent);
+  color: var(--color-primary-light);
 }
 
 /* ==========================================================================
@@ -247,7 +247,7 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, rgba(10, 10, 10, 0.75) 0%, rgba(10, 10, 10, 0.85) 100%);
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.75) 0%, rgba(10, 10, 10, 0.88) 100%);
 }
 
 .page-hero-content {
@@ -291,7 +291,7 @@ img {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.85) 100%);
+  background: radial-gradient(circle at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.85) 100%);
 }
 
 .home-hero-content {
@@ -302,7 +302,7 @@ img {
 
 .hero-badge-tag {
   display: inline-block;
-  background: rgba(168, 28, 28, 0.85);
+  background: var(--color-primary);
   color: #ffffff;
   font-size: 0.85rem;
   font-weight: 700;
@@ -357,7 +357,7 @@ img {
   background: var(--color-primary-dark);
   border-color: var(--color-primary-dark);
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(168, 28, 28, 0.45);
+  box-shadow: 0 8px 25px rgba(167, 13, 28, 0.45);
 }
 
 .btn-outline {
@@ -488,12 +488,13 @@ img {
   box-shadow: var(--shadow-sm);
   display: flex;
   align-items: center;
-  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
 }
 
 .menu-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
+  border-color: rgba(167, 13, 28, 0.3);
 }
 
 .menu-card-img {
@@ -635,7 +636,7 @@ img {
 .combo-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-md);
-  border-color: var(--color-primary-light);
+  border-color: var(--color-primary);
 }
 
 .combo-card-img {
@@ -712,7 +713,7 @@ img {
 }
 
 /* ==========================================================================
-   Story / About Layout (Two columns with inside photos)
+   Story / About Layout
    ========================================================================== */
 .story-grid {
   display: grid;
@@ -831,7 +832,7 @@ img {
 }
 
 .footer-top {
-  background: var(--color-primary);
+  background: var(--color-primary); /* Exact #a70d1c red */
   color: #ffffff;
   padding: 4rem 2rem;
 }
