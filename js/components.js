@@ -6,13 +6,16 @@
 (function () {
   // 1. Render Header Placeholder
   const headerEl = document.getElementById('header-placeholder');
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  let currentFile = window.location.pathname.split('/').filter(Boolean).pop() || 'index.html';
+  if (!currentFile.includes('.')) {
+    currentFile += '.html';
+  }
 
   function getActive(page) {
-    if (page === 'index.html' && (currentPath === '' || currentPath === 'index.html')) {
+    if (page === 'index.html' && (currentFile === '' || currentFile === 'index.html')) {
       return 'active';
     }
-    return currentPath === page ? 'active' : '';
+    return currentFile === page ? 'active' : '';
   }
 
   if (headerEl) {
