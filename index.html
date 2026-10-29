@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/styles.css?v=2.3">
+  <link rel="stylesheet" href="css/styles.css?v=3.0">
 </head>
 <body>
 
@@ -25,7 +25,37 @@
   <div id="header-placeholder"></div>
 
   <!-- Hero Slider / Banner Section -->
-  <section class="home-hero">
+  <section class="home-hero" id="home-hero-slider">
+    <!-- Slides Background Container -->
+    <div class="hero-slides-wrapper">
+      <div class="hero-slide active" style="background-image: url('assets/images/silder2.webp');" data-index="0"></div>
+      <div class="hero-slide" style="background-image: url('assets/images/Plato2.webp');" data-index="1"></div>
+      <div class="hero-slide" style="background-image: url('assets/images/Plato10.webp');" data-index="2"></div>
+      <div class="hero-slide" style="background-image: url('assets/images/Plato1.webp');" data-index="3"></div>
+      <div class="hero-slide" style="background-image: url('assets/images/Plato4.webp');" data-index="4"></div>
+    </div>
+
+    <!-- Slider Navigation Arrows -->
+    <button class="hero-slider-arrow prev" id="hero-slider-prev" aria-label="Previous Slide">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <button class="hero-slider-arrow next" id="hero-slider-next" aria-label="Next Slide">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+
+    <!-- Slider Pagination Dots -->
+    <div class="hero-slider-dots" id="hero-slider-dots">
+      <button class="dot active" data-slide="0" aria-label="Slide 1"></button>
+      <button class="dot" data-slide="1" aria-label="Slide 2"></button>
+      <button class="dot" data-slide="2" aria-label="Slide 3"></button>
+      <button class="dot" data-slide="3" aria-label="Slide 4"></button>
+      <button class="dot" data-slide="4" aria-label="Slide 5"></button>
+    </div>
+
     <div class="home-hero-content">
       <h1 class="home-hero-title">The Finest Dishes in the Latin American Cuisine</h1>
       <p class="home-hero-desc">
@@ -332,7 +362,7 @@
   <div id="footer-placeholder"></div>
 
   <!-- Shared Scripts -->
-  <script src="js/components.js?v=2.1"></script>
+  <script src="js/components.js?v=3.0"></script>
   <script>
     function filterMenu(category) {
       const cards = document.querySelectorAll('#menu-items-grid .menu-card');

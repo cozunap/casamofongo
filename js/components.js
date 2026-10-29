@@ -81,6 +81,12 @@
     }
   }
 
+  // 1.5 Header Logo Size Safety
+  const headerLogo = document.querySelector('.header-logo-img');
+  if (headerLogo) {
+    headerLogo.style.height = '90px';
+  }
+
   // 2. Render Footer Placeholder
   const footerEl = document.getElementById('footer-placeholder');
   if (footerEl) {
@@ -133,4 +139,121 @@
       }, 5000);
     });
   });
+
+  // 4. Hero Slider Implementation
+  const heroSlider = document.getElementById('home-hero-slider');
+  if (heroSlider) {
+    const slides = heroSlider.querySelectorAll('.hero-slide');
+    const dots = heroSlider.querySelectorAll('.hero-slider-dots .dot');
+    const prevBtn = document.getElementById('hero-slider-prev');
+    const nextBtn = document.getElementById('hero-slider-next');
+    let currentSlide = 0;
+    let slideTimer = null;
+
+    function goToSlide(index) {
+      if (!slides.length) return;
+      slides[currentSlide].classList.remove('active');
+      if (dots[currentSlide]) dots[currentSlide].classList.remove('active');
+
+      currentSlide = (index + slides.length) % slides.length;
+
+      slides[currentSlide].classList.add('active');
+      if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+    }
+
+    function startAutoplay() {
+      stopAutoplay();
+      slideTimer = setInterval(() => {
+        goToSlide(currentSlide + 1);
+      }, 5000);
+    }
+
+    function stopAutoplay() {
+      if (slideTimer) clearInterval(slideTimer);
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        goToSlide(currentSlide - 1);
+        startAutoplay();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        goToSlide(currentSlide + 1);
+        startAutoplay();
+      });
+    }
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        goToSlide(idx);
+        startAutoplay();
+      });
+    });
+
+    heroSlider.addEventListener('mouseenter', stopAutoplay);
+    heroSlider.addEventListener('mouseleave', startAutoplay);
+
+    // Initial start
+    startAutoplay();
+  }
+
+  // 5. Global 3D Interactive Container Animations
+  function init3DEffects() {
+    // 3D Reveal on Scroll
+    const targetCards = document.querySelectorAll(
+      '.menu-card, .feature-card, .gallery-item, .combo-card, .contact-info-card, .reservation-card, .story-grid > div'
+    );
+
+    targetCards.forEach(el => {
+      el.classList.add('reveal-3d');
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    targetCards.forEach(el => observer.observe(el));
+
+    // Interactive 3D Cursor Tilt for Desktop Cards
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      targetCards.forEach(card => {
+        card.setAttribute('data-tilt-3d', 'true');
+
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const rotateX = ((y - centerY) / centerY) * -12;
+          const rotateY = ((x - centerX) / centerX) * 12;
+
+          card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(10px) scale(1.02)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+        });
+      });
+    }
+  }
+
+  // Run 3D initialization
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init3DEffects);
+  } else {
+    init3DEffects();
+  }
 })();
