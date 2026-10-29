@@ -1115,7 +1115,8 @@ img {
 .map-floating-card {
   position: absolute;
   top: 1.75rem;
-  left: 2rem;
+  right: 2rem;
+  left: auto;
   z-index: 10;
   background: #111111;
   border: 1px solid rgba(255, 255, 255, 0.12);
