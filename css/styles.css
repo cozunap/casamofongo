@@ -1269,11 +1269,53 @@ img {
   gap: 1.5rem;
 }
 
+/* Goals Banner Flush Layout */
+.goals-banner-bar {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.goals-banner-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
 .responsive-goals-grid {
   display: grid;
-  grid-template-columns: 220px 1fr 280px;
+  grid-template-columns: 200px 1fr 340px;
   gap: 2rem;
+  align-items: stretch;
+  min-height: 200px;
+}
+
+.goals-beer-col {
+  display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 2rem 0 2rem 1.5rem;
+}
+
+.goals-text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.25rem 0.5rem;
+}
+
+.goals-dish-col {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  overflow: hidden;
+}
+
+.goals-dish-flush-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
 }
 
 .dishes-strip-grid {
@@ -1470,6 +1512,16 @@ img {
   .responsive-goals-grid {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 1.5rem;
+  }
+  .goals-beer-col {
+    padding: 2rem 1.5rem 0.5rem;
+  }
+  .goals-text-col {
+    padding: 0 1.5rem;
+  }
+  .goals-dish-col {
+    height: 220px;
   }
   .dishes-strip-grid {
     grid-template-columns: repeat(3, 1fr);
