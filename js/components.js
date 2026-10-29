@@ -237,10 +237,10 @@
           const centerX = rect.width / 2;
           const centerY = rect.height / 2;
           
-          const rotateX = ((y - centerY) / centerY) * -12;
-          const rotateY = ((x - centerX) / centerX) * 12;
+          const rotateX = ((y - centerY) / centerY) * -16;
+          const rotateY = ((x - centerX) / centerX) * 16;
 
-          card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(10px) scale(1.02)`;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(15px) scale(1.03)`;
         });
 
         card.addEventListener('mouseleave', () => {

@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/styles.css?v=3.0">
+  <link rel="stylesheet" href="css/styles.css?v=3.1">
 </head>
 <body>
 
@@ -79,14 +79,14 @@
 
       <!-- 3 Photos Strip (from image 4) -->
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3.5rem;">
-        <div style="border-radius: 4px; overflow: hidden; box-shadow: var(--shadow-sm); aspect-ratio: 4/3;">
-          <img src="assets/images/Plato10.webp" alt="Dominican Steak and Moro" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="gallery-item" style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/3;">
+          <img src="assets/images/Plato10.webp" alt="Dominican Steak and Moro">
         </div>
-        <div style="border-radius: 4px; overflow: hidden; box-shadow: var(--shadow-sm); aspect-ratio: 4/3;">
-          <img src="assets/images/inside2.webp" alt="Restaurant Interior Decor" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="gallery-item" style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/3;">
+          <img src="assets/images/inside2.webp" alt="Restaurant Interior Decor">
         </div>
-        <div style="border-radius: 4px; overflow: hidden; box-shadow: var(--shadow-sm); aspect-ratio: 4/3;">
-          <img src="assets/images/inside3.webp" alt="Dining Room Atmosphere" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="gallery-item" style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/3;">
+          <img src="assets/images/inside3.webp" alt="Dining Room Atmosphere">
         </div>
       </div>
     </div>
@@ -362,7 +362,7 @@
   <div id="footer-placeholder"></div>
 
   <!-- Shared Scripts -->
-  <script src="js/components.js?v=3.0"></script>
+  <script src="js/components.js?v=3.1"></script>
   <script>
     function filterMenu(category) {
       const cards = document.querySelectorAll('#menu-items-grid .menu-card');
