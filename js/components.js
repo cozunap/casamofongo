@@ -250,10 +250,145 @@
     }
   }
 
-  // Run 3D initialization
+  // 6. Interactive Lightbox Gallery Slider
+  function initGalleryLightbox() {
+    const galleryItems = Array.from(document.querySelectorAll('.gallery-grid .gallery-item, .responsive-tri-grid .gallery-item, .dishes-strip-grid img'));
+    if (!galleryItems.length) return;
+
+    // Create Modal DOM
+    let lightbox = document.getElementById('gallery-lightbox-modal');
+    if (!lightbox) {
+      lightbox = document.createElement('div');
+      lightbox.id = 'gallery-lightbox-modal';
+      lightbox.className = 'lightbox-modal';
+      lightbox.innerHTML = `
+        <button class="lightbox-close-btn" aria-label="Close Lightbox">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <button class="lightbox-arrow prev" aria-label="Previous Image">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="lightbox-arrow next" aria-label="Next Image">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+        <div class="lightbox-content">
+          <img src="" alt="" class="lightbox-img">
+          <div class="lightbox-caption"></div>
+          <div class="lightbox-counter"></div>
+        </div>
+      `;
+      document.body.appendChild(lightbox);
+    }
+
+    const modalImg = lightbox.querySelector('.lightbox-img');
+    const modalCaption = lightbox.querySelector('.lightbox-caption');
+    const modalCounter = lightbox.querySelector('.lightbox-counter');
+    const closeBtn = lightbox.querySelector('.lightbox-close-btn');
+    const prevBtn = lightbox.querySelector('.lightbox-arrow.prev');
+    const nextBtn = lightbox.querySelector('.lightbox-arrow.next');
+
+    // Collect all image sources
+    const imagesData = galleryItems.map(item => {
+      const img = item.tagName.toLowerCase() === 'img' ? item : item.querySelector('img');
+      return {
+        src: img ? img.getAttribute('src') : '',
+        alt: img ? img.getAttribute('alt') || 'La Casa Del Mofongo Caribbean Cuisine' : ''
+      };
+    }).filter(d => d.src);
+
+    let currentIndex = 0;
+
+    function showImage(index) {
+      if (!imagesData.length) return;
+      currentIndex = (index + imagesData.length) % imagesData.length;
+      const data = imagesData[currentIndex];
+
+      modalImg.style.opacity = '0';
+      modalImg.style.transform = 'scale(0.96)';
+
+      setTimeout(() => {
+        modalImg.src = data.src;
+        modalImg.alt = data.alt;
+        modalCaption.textContent = data.alt;
+        modalCounter.textContent = `${currentIndex + 1} / ${imagesData.length}`;
+        modalImg.style.opacity = '1';
+        modalImg.style.transform = 'scale(1)';
+      }, 150);
+    }
+
+    function openLightbox(index) {
+      showImage(index);
+      lightbox.classList.add('is-active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('is-active');
+      document.body.style.overflow = '';
+    }
+
+    // Attach click to each gallery item
+    galleryItems.forEach((item, idx) => {
+      item.style.cursor = 'pointer';
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        openLightbox(idx);
+      });
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showImage(currentIndex - 1);
+    });
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showImage(currentIndex + 1);
+    });
+
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.classList.contains('lightbox-content')) {
+        closeLightbox();
+      }
+    });
+
+    // Keyboard navigation (Escape, Left, Right)
+    window.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('is-active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+      if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+    });
+
+    // Mobile Swipe Gesture Support
+    let touchStartX = 0;
+    let touchEndX = 0;
+    lightbox.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    lightbox.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchEndX < touchStartX - 50) showImage(currentIndex + 1); // swipe left
+      if (touchEndX > touchStartX + 50) showImage(currentIndex - 1); // swipe right
+    }, { passive: true });
+  }
+
+  // Run initialization
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init3DEffects);
+    document.addEventListener('DOMContentLoaded', () => {
+      init3DEffects();
+      initGalleryLightbox();
+    });
   } else {
     init3DEffects();
+    initGalleryLightbox();
   }
 })();
