@@ -3,161 +3,352 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La Casa Del Mofongo | Coming Soon | Silver Spring, MD</title>
-  <meta name="description" content="La Casa Del Mofongo in Silver Spring, MD. Homestyle Caribbean & Latin fare, mashed plantains, pork chops, happy hour food, great cocktails & kids' menu in a simple space with TVs. New website coming soon.">
+  <title>La Casa Del Mofongo | The Finest Dishes in Latin American Cuisine | Silver Spring, MD</title>
+  <meta name="description" content="La Casa Del Mofongo in Silver Spring, MD. The finest dishes in Latin American cuisine, authentic mashed plantains, pork chops, happy hour food, great cocktails & kids' menu.">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="La Casa Del Mofongo | Coming Soon">
-  <meta property="og:description" content="Homestyle Caribbean & Latin fare, mashed plantains & pork chops in Silver Spring, MD. Official website coming soon.">
-  <meta property="og:url" content="https://casamofongo.pages.dev/">
+  <meta property="og:title" content="La Casa Del Mofongo | The Finest Dishes in Latin American Cuisine">
+  <meta property="og:description" content="Experience homestyle Caribbean & Latin American cuisine in Silver Spring, Maryland.">
+  <meta property="og:image" content="assets/images/silder2.webp">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts (Playfair Display & Inter) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- Minimal Brand Header -->
-  <header class="cs-header">
-    <div class="brand-emblem">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-        <line x1="6" y1="1" x2="6" y2="4"></line>
-        <line x1="10" y1="1" x2="10" y2="4"></line>
-        <line x1="14" y1="1" x2="14" y2="4"></line>
-      </svg>
-    </div>
-    <div class="brand-title">La Casa Del <span class="gold">Mofongo</span></div>
-    <div class="brand-tagline">Silver Spring, MD &bull; Est. Caribbean &amp; Latin Fare</div>
-  </header>
+  <!-- Shared Header -->
+  <div id="header-placeholder"></div>
 
-  <!-- Focused Coming Soon Card -->
-  <main class="cs-wrapper">
-    <div class="cs-pill">Website Under Construction</div>
-
-    <h1 class="cs-heading">
-      Something Delicious Is <br>
-      <span class="gold-gradient-text">Coming Soon</span>
-    </h1>
-
-    <p class="cs-description">
-      Homestyle Caribbean &amp; Latin fare, such as mashed plantains &amp; pork chops, in a simple space with TVs. We are crafting our new digital experience for online ordering and specials.
-    </p>
-
-    <!-- Service Tags -->
-    <div class="cs-tags">
-      <span class="cs-tag">🍹 Great Cocktails</span>
-      <span class="cs-tag">🍺 Happy Hour Food</span>
-      <span class="cs-tag">👶 Kids' Menu</span>
-      <span class="cs-tag">📺 TVs &amp; Sports</span>
-    </div>
-
-    <!-- Live Countdown -->
-    <div class="countdown-grid" aria-label="Launch Countdown">
-      <div class="countdown-box">
-        <div class="countdown-num" id="days">28</div>
-        <div class="countdown-label">Days</div>
-      </div>
-      <div class="countdown-box">
-        <div class="countdown-num" id="hours">14</div>
-        <div class="countdown-label">Hours</div>
-      </div>
-      <div class="countdown-box">
-        <div class="countdown-num" id="minutes">32</div>
-        <div class="countdown-label">Mins</div>
-      </div>
-      <div class="countdown-box">
-        <div class="countdown-num" id="seconds">45</div>
-        <div class="countdown-label">Secs</div>
+  <!-- Hero Slider / Banner Section -->
+  <section class="home-hero">
+    <div class="home-hero-content">
+      <span class="hero-badge-tag">Since a while ago</span>
+      <h1 class="home-hero-title">The Finest Dishes in the Latin American Cuisine</h1>
+      <p class="home-hero-desc">
+        Homestyle Caribbean &amp; Latin fare, such as mashed plantains &amp; pork chops, in a comfortable welcoming space with TVs, great cocktails, and kids' menu.
+      </p>
+      <div class="hero-btn-group">
+        <a href="menu.html" class="btn-primary">View Our Menu</a>
+        <a href="#book-table" class="btn-outline">Book A Table</a>
       </div>
     </div>
+  </section>
 
-    <!-- Notify Lead Form -->
-    <form class="cs-form" id="notify-form">
-      <input type="email" class="cs-input" id="email-input" placeholder="Enter your email for launch alerts..." required aria-label="Email address">
-      <button type="submit" class="cs-btn">Notify Me</button>
-    </form>
-    <div class="cs-feedback" id="form-feedback"></div>
-
-    <!-- Live Business Info (Visit us today) -->
-    <div class="cs-info-bar">
-      <div class="cs-info-item">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="2">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-          <circle cx="12" cy="10" r="3"></circle>
-        </svg>
-        <a href="https://maps.google.com/?q=9441+Georgia+Ave+Silver+Spring+MD+20910+United+States" target="_blank" rel="noopener noreferrer">
-          9441 Georgia Ave, Silver Spring, MD 20910
-        </a>
+  <!-- Welcome Story Section -->
+  <section class="section" style="background-color: #ffffff;">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-sub">Welcome to</span>
+        <h2 class="section-title">La Casa Del Mofongo</h2>
+        <p class="section-desc">Authentic Dominican &amp; Caribbean cuisine made with heart, fresh ingredients, and island passion in Silver Spring, MD.</p>
       </div>
 
-      <div class="cs-info-item">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-gold)" stroke-width="2">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-        </svg>
-        <a href="tel:+12408633750">+1 240-863-3750</a>
-      </div>
-
-      <div class="cs-info-item" style="color: #34d399; font-weight: 500;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2">
-          <circle cx="12" cy="12" r="10"></circle>
-          <polyline points="12 6 12 12 16 14"></polyline>
-        </svg>
-        <span>Open &bull; Closes 10 p.m.</span>
+      <!-- 3 Photos Strip (from image 4) -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3.5rem;">
+        <div style="border-radius: 4px; overflow: hidden; box-shadow: var(--shadow-sm); aspect-ratio: 4/3;">
+          <img src="assets/images/Plato10.webp" alt="Dominican Steak and Moro" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div style="border-radius: 4px; overflow: hidden; box-shadow: var(--shadow-sm); aspect-ratio: 4/3;">
+          <img src="assets/images/inside2.webp" alt="Restaurant Interior Decor" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div style="border-radius: 4px; overflow: hidden; box-shadow: var(--shadow-sm); aspect-ratio: 4/3;">
+          <img src="assets/images/inside3.webp" alt="Dining Room Atmosphere" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
       </div>
     </div>
-  </main>
+  </section>
 
-  <!-- Clean Footer -->
-  <footer class="cs-footer">
-    <p>&copy; <span id="year"></span> La Casa Del Mofongo &bull; Silver Spring, MD, United States</p>
-  </footer>
+  <!-- Red Goals Banner (from screenshot 4) -->
+  <section class="red-banner-bar" style="background: url('assets/images/banner-slide-home-7.webp') no-repeat center center / cover; position: relative;">
+    <div style="position: absolute; inset: 0; background: rgba(168, 28, 28, 0.92);"></div>
+    <div class="section-container" style="position: relative; z-index: 2;">
+      <div style="display: grid; grid-template-columns: 220px 1fr 280px; gap: 2rem; align-items: center;">
+        <div style="text-align: center;">
+          <img src="assets/images/beer.webp" alt="Cold Beers & Cocktails" style="max-height: 140px; margin: 0 auto; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
+        </div>
+        <div style="color: #ffffff; text-align: center;">
+          <span style="font-family: var(--font-serif); font-style: italic; font-size: 1.2rem; color: #ffcccc;">La Casa Del Mofongo</span>
+          <h3 style="font-size: 2rem; text-transform: uppercase; margin-bottom: 0.75rem; color: #ffffff;">Our Goals</h3>
+          <p style="color: #ffffff; font-size: 0.95rem; line-height: 1.6;">
+            A key tradition is to ensure our customers find comfort, genuine hospitality, and exquisite authentic Caribbean recipes. We are proud to serve you every day with unforgettable flavors in the DMV area.
+          </p>
+        </div>
+        <div>
+          <img src="assets/images/Plato1.webp" alt="Signature Caribbean Plate" style="border-radius: 4px; box-shadow: 0 4px 15px rgba(0,0,0,0.4); max-height: 140px; width: 100%; object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Online Booking Reservation Section -->
+  <section class="section reservation-section" id="book-table">
+    <div class="reservation-container">
+      <span class="section-sub" style="color: var(--color-accent-light);">Online booking</span>
+      <h2 class="section-title" style="color: #ffffff; letter-spacing: 0.08em;">RESERVATION</h2>
+      <p style="color: #cccccc;">Reserve your table or plan your family party. Call us at (240) 863-3750 or fill out the booking form below.</p>
+
+      <div class="reservation-box">
+        <form class="reservation-form" data-ajax-form>
+          <div class="form-group">
+            <label for="res-name">Your Name</label>
+            <input type="text" id="res-name" class="form-input" placeholder="Full Name" required>
+          </div>
+          <div class="form-group">
+            <label for="res-phone">Phone Number</label>
+            <input type="tel" id="res-phone" class="form-input" placeholder="(240) 000-0000" required>
+          </div>
+          <div class="form-group">
+            <label for="res-guests">Number of Guests</label>
+            <select id="res-guests" class="form-input" style="background-color: #111;">
+              <option value="1">1 Person</option>
+              <option value="2" selected>2 People</option>
+              <option value="4">4 People</option>
+              <option value="6">6 People</option>
+              <option value="8+">8+ People</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="res-date">Date</label>
+            <input type="date" id="res-date" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label for="res-time">Time</label>
+            <input type="time" id="res-time" class="form-input" value="18:00" required>
+          </div>
+          <div class="form-group">
+            <label for="res-requests">Special Requests</label>
+            <input type="text" id="res-requests" class="form-input" placeholder="Birthday, High Chair, etc.">
+          </div>
+          <div class="form-group form-full" style="text-align: center; margin-top: 1rem;">
+            <button type="submit" class="btn-primary" style="padding: 1rem 3rem;">Confirm Reservation</button>
+            <div class="form-success-msg" style="display: none; margin-top: 1rem; color: #34d399; font-weight: 600;">
+              Thank you! Your table request has been received. We will call you to confirm.
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Menu Section (Grand Restaurant Style Tabs & Cards) -->
+  <section class="section" style="background: url('assets/images/Onepage-background-services-1.webp') repeat; background-color: #fbfbfb;">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-sub">Find out</span>
+        <h2 class="section-title">Our Menu</h2>
+        <p class="section-desc">Homestyle Caribbean dishes prepared daily with fresh plantains, savory seasoned meats, and garlic mojo.</p>
+      </div>
+
+      <!-- Menu Tabs -->
+      <div class="menu-tabs">
+        <button class="menu-tab-btn active" onclick="filterMenu('all')">All Dishes</button>
+        <button class="menu-tab-btn" onclick="filterMenu('mofongo')">Mofongos</button>
+        <button class="menu-tab-btn" onclick="filterMenu('meats')">Meats &amp; Pork Chops</button>
+        <button class="menu-tab-btn" onclick="filterMenu('seafood')">Seafood &amp; Shrimps</button>
+      </div>
+
+      <!-- Menu Cards Grid (From Images 3 & 4) -->
+      <div class="menu-grid" id="menu-items-grid">
+        <!-- 1. Carne de Res Frita -->
+        <div class="menu-card" data-category="meats">
+          <img src="assets/images/Carne-de-Res-Frita.webp" alt="Carne de Res Frita" class="menu-card-img">
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h4 class="menu-card-title">Carne de Res Frita</h4>
+              <span class="menu-card-price">$16.50</span>
+            </div>
+            <p class="menu-card-desc">Crispy marinated beef cubes served with onions and plantains.</p>
+          </div>
+        </div>
+
+        <!-- 2. Sopa de Mondongo -->
+        <div class="menu-card" data-category="meats">
+          <img src="assets/images/Mondongo-Stew.webp" alt="Mondongo Stew" class="menu-card-img">
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h4 class="menu-card-title">Sopa de Mondongo</h4>
+              <span class="menu-card-price">$14.00</span>
+            </div>
+            <p class="menu-card-desc">Traditional rich tripe stew with tropical vegetables and herbs.</p>
+          </div>
+        </div>
+
+        <!-- 3. Mofongo Solo -->
+        <div class="menu-card" data-category="mofongo">
+          <img src="assets/images/Mofongo-Solo.webp" alt="Mofongo Solo" class="menu-card-img">
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h4 class="menu-card-title">Mofongo Solo</h4>
+              <span class="menu-card-price">$9.00</span>
+            </div>
+            <p class="menu-card-desc">Fried green plantains mashed with garlic, olive oil, and broth.</p>
+          </div>
+        </div>
+
+        <!-- 4. Trifongo Solo -->
+        <div class="menu-card" data-category="mofongo">
+          <img src="assets/images/Trifongo-Sólo.webp" alt="Trifongo Solo" class="menu-card-img">
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h4 class="menu-card-title">Trifongo Solo</h4>
+              <span class="menu-card-price">$11.00</span>
+            </div>
+            <p class="menu-card-desc">A trio blend of green plantain, sweet ripe plantain, and cassava.</p>
+          </div>
+        </div>
+
+        <!-- 5. Mofongo Camarones -->
+        <div class="menu-card" data-category="mofongo seafood">
+          <img src="assets/images/Shrimp.webp" alt="Mofongo Camarones" class="menu-card-img">
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h4 class="menu-card-title">Mofongo Camarones</h4>
+              <span class="menu-card-price">$19.50</span>
+            </div>
+            <p class="menu-card-desc">Signature mashed plantains crowned with jumbo garlic shrimp.</p>
+          </div>
+        </div>
+
+        <!-- 6. Mofongo de Pollo -->
+        <div class="menu-card" data-category="mofongo meats">
+          <img src="assets/images/Mofongo-de-Pollo.webp" alt="Mofongo de Pollo" class="menu-card-img">
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h4 class="menu-card-title">Mofongo de Pollo</h4>
+              <span class="menu-card-price">$15.00</span>
+            </div>
+            <p class="menu-card-desc">Mashed plantain served with savory braised creole chicken.</p>
+          </div>
+        </div>
+
+        <!-- 7. Chicharrón de Cerdo -->
+        <div class="menu-card" data-category="meats">
+          <img src="assets/images/Plato15.webp" alt="Chicharrón de Cerdo" class="menu-card-img">
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h4 class="menu-card-title">Chicharrón de Cerdo</h4>
+              <span class="menu-card-price">$16.00</span>
+            </div>
+            <p class="menu-card-desc">Deep-fried crisp pork chunks with tostones and lime.</p>
+          </div>
+        </div>
+
+        <!-- 8. Masita de Cerdo -->
+        <div class="menu-card" data-category="meats">
+          <img src="assets/images/Masita-de-Cerdo.webp" alt="Masita de Cerdo" class="menu-card-img">
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h4 class="menu-card-title">Masita de Cerdo</h4>
+              <span class="menu-card-price">$15.50</span>
+            </div>
+            <p class="menu-card-desc">Tender fried pork shoulder morsels seasoned with garlic.</p>
+          </div>
+        </div>
+
+        <!-- 9. Chuleta Ahumada -->
+        <div class="menu-card" data-category="meats">
+          <img src="assets/images/Chuleta-Ahumada.webp" alt="Chuleta Ahumada" class="menu-card-img">
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h4 class="menu-card-title">Chuleta Ahumada</h4>
+              <span class="menu-card-price">$15.00</span>
+            </div>
+            <p class="menu-card-desc">Smoked seasoned pork chops grilled to savory perfection.</p>
+          </div>
+        </div>
+
+        <!-- 10. Longaniza Dominicana -->
+        <div class="menu-card" data-category="meats">
+          <img src="assets/images/Plato14.webp" alt="Longaniza con Tostones" class="menu-card-img">
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h4 class="menu-card-title">Longaniza Dominicana</h4>
+              <span class="menu-card-price">$13.50</span>
+            </div>
+            <p class="menu-card-desc">Artisanal Caribbean pork sausage served with fried plantains.</p>
+          </div>
+        </div>
+
+        <!-- 11. Red Snapper / Chillo Frito -->
+        <div class="menu-card" data-category="seafood">
+          <img src="assets/images/Red-Snapper.webp" alt="Red Snapper" class="menu-card-img">
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h4 class="menu-card-title">Pargo Rojo (Red Snapper)</h4>
+              <span class="menu-card-price">$24.00</span>
+            </div>
+            <p class="menu-card-desc">Whole fried red snapper served with house salad and tostones.</p>
+          </div>
+        </div>
+
+        <!-- 12. Filete de Salmón -->
+        <div class="menu-card" data-category="seafood">
+          <img src="assets/images/Salmon.webp" alt="Filete de Salmón" class="menu-card-img">
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h4 class="menu-card-title">Filete de Salmón</h4>
+              <span class="menu-card-price">$20.00</span>
+            </div>
+            <p class="menu-card-desc">Pan-seared Atlantic salmon fillet with garlic butter sauce.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3.5rem;">
+        <a href="menu.html" class="btn-primary">View Full Menu &amp; Drinks</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dishes Showcase Carousel / Strip (6 photos from image 4) -->
+  <section style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; overflow: hidden; max-height: 200px;">
+    <img src="assets/images/Plato1.webp" alt="Picadera" style="width: 100%; height: 200px; object-fit: cover;">
+    <img src="assets/images/Plato11.webp" alt="Pollo Guisado" style="width: 100%; height: 200px; object-fit: cover;">
+    <img src="assets/images/Plato12.webp" alt="Carne Guisada" style="width: 100%; height: 200px; object-fit: cover;">
+    <img src="assets/images/Plato18.webp" alt="Pescado con Ensalada" style="width: 100%; height: 200px; object-fit: cover;">
+    <img src="assets/images/Plato19.webp" alt="Sopa Criolla" style="width: 100%; height: 200px; object-fit: cover;">
+    <img src="assets/images/Plato20.webp" alt="Sopa de Pollo" style="width: 100%; height: 200px; object-fit: cover;">
+  </section>
+
+  <!-- Interactive Google Map Section -->
+  <section style="line-height: 0; position: relative;">
+    <iframe 
+      title="La Casa Del Mofongo Map"
+      src="https://maps.google.com/maps?q=9441+Georgia+Ave,+Silver+Spring,+MD+20910&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+      width="100%" 
+      height="380" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy">
+    </iframe>
+  </section>
+
+  <!-- Shared Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Shared Scripts -->
+  <script src="js/components.js"></script>
   <script>
-    // Current year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    function filterMenu(category) {
+      const cards = document.querySelectorAll('#menu-items-grid .menu-card');
+      const buttons = document.querySelectorAll('.menu-tab-btn');
+      
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
 
-    // Countdown Timer (28 days target)
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 28);
-    targetDate.setHours(18, 0, 0, 0);
-
-    const daysEl = document.getElementById('days');
-    const hoursEl = document.getElementById('hours');
-    const minsEl = document.getElementById('minutes');
-    const secsEl = document.getElementById('seconds');
-
-    function updateTimer() {
-      const diff = targetDate.getTime() - new Date().getTime();
-      if (diff > 0) {
-        daysEl.textContent = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
-        hoursEl.textContent = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-        minsEl.textContent = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-        secsEl.textContent = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
-      }
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category').includes(category)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     }
-    updateTimer();
-    setInterval(updateTimer, 1000);
-
-    // Form feedback
-    const form = document.getElementById('notify-form');
-    const input = document.getElementById('email-input');
-    const feedback = document.getElementById('form-feedback');
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (input.value) {
-        feedback.textContent = "Thank you! We'll notify you as soon as we launch.";
-        feedback.classList.add('is-visible');
-        input.value = '';
-        setTimeout(() => feedback.classList.remove('is-visible'), 5000);
-      }
-    });
   </script>
 </body>
 </html>
