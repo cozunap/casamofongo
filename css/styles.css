@@ -90,9 +90,9 @@ img {
 }
 
 .header-container {
-  max-width: 100%;
-  margin: 0;
-  padding: 1.25rem 3rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.25rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -144,8 +144,8 @@ img {
   align-items: center;
   gap: 2.25rem;
   list-style: none;
-  margin-left: 2.5rem;
-  margin-right: auto;
+  margin-left: auto;
+  margin-right: 2rem;
 }
 
 .nav-link {
