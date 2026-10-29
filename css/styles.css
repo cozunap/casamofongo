@@ -1290,17 +1290,33 @@ img {
 
 .responsive-goals-grid {
   display: grid;
-  grid-template-columns: 220px 1fr clamp(320px, 35vw, 500px);
+  grid-template-columns: minmax(240px, 300px) 1fr clamp(320px, 35vw, 500px);
   gap: 1.5rem;
   align-items: stretch;
-  min-height: 220px;
+  min-height: 240px;
 }
 
 .goals-beer-col {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 0 2rem clamp(1rem, 4vw, 3rem);
+  padding: 1rem 0 1rem clamp(1rem, 3vw, 2.5rem);
+}
+
+.goals-beer-img {
+  width: 100%;
+  max-width: 280px;
+  max-height: 220px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4));
+  transition: transform 0.3s ease;
+}
+
+.goals-beer-img:hover {
+  transform: scale(1.05) rotate(-2deg);
 }
 
 .goals-text-col {
@@ -1529,6 +1545,10 @@ img {
   }
   .goals-beer-col {
     padding: 2rem 1.5rem 0.5rem;
+  }
+  .goals-beer-img {
+    max-width: 220px;
+    max-height: 180px;
   }
   .goals-text-col {
     padding: 0 1.5rem;
