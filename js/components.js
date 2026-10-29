@@ -21,10 +21,6 @@
         <div class="header-container">
           <a href="index.html" class="header-brand" aria-label="La Casa Del Mofongo">
             <img src="assets/images/logo.webp" alt="La Casa Del Mofongo Logo" class="header-logo-img">
-            <div class="header-brand-text">
-              <span class="header-brand-title">La Casa Del Mofongo</span>
-              <span class="header-brand-sub">Silver Spring, MD</span>
-            </div>
           </a>
 
           <nav class="nav-menu" aria-label="Main Menu">
