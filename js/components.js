@@ -166,7 +166,7 @@
       stopAutoplay();
       slideTimer = setInterval(() => {
         goToSlide(currentSlide + 1);
-      }, 5000);
+      }, 6500);
     }
 
     function stopAutoplay() {
