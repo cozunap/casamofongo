@@ -96,9 +96,6 @@
           <div class="footer-top-container">
             <div class="footer-brand">
               <img src="assets/images/logo.svg" alt="La Casa Del Mofongo Logo" class="footer-logo-img">
-              <p style="color: #ffffff; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.08em;">
-                La Casa Del Mofongo MD
-              </p>
             </div>
 
             <div class="footer-col">
