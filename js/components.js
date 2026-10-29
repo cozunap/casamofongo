@@ -20,7 +20,7 @@
       <header class="site-header" id="site-header">
         <div class="header-container">
           <a href="index.html" class="header-brand" aria-label="La Casa Del Mofongo">
-            <img src="assets/images/logo.webp" alt="La Casa Del Mofongo Logo" class="header-logo-img">
+            <img src="assets/images/logo.svg" alt="La Casa Del Mofongo Logo" class="header-logo-img">
           </a>
 
           <nav class="nav-menu" aria-label="Main Menu">
@@ -86,7 +86,7 @@
         <div class="footer-top">
           <div class="footer-top-container">
             <div class="footer-brand">
-              <img src="assets/images/logo.webp" alt="La Casa Del Mofongo Logo" class="footer-logo-img">
+              <img src="assets/images/logo.svg" alt="La Casa Del Mofongo Logo" class="footer-logo-img">
               <p style="color: #ffffff; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.08em;">
                 La Casa Del Mofongo MD
               </p>
