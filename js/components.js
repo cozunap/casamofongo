@@ -115,7 +115,7 @@
         </div>
 
         <div class="footer-bottom">
-          <p>Copyright &copy; ${new Date().getFullYear()} La Casa Del Mofongo MD. All rights reserved. &bull; <a href="admin.html" style="color: #666666; text-decoration: none; font-size: 0.75rem;">Admin Portal</a></p>
+          <p>Copyright &copy; ${new Date().getFullYear()} La Casa Del Mofongo MD. All rights reserved. &bull; Designed and Developed by <a href="https://cozuna.com" target="_blank" rel="noopener noreferrer">cozuna.com</a></p>
         </div>
       </footer>
     `;
