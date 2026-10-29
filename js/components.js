@@ -20,7 +20,7 @@
       <header class="site-header" id="site-header">
         <div class="header-container">
           <a href="index.html" class="header-brand" aria-label="La Casa Del Mofongo">
-            <img src="assets/images/CASA-DEL-MOFONGO.webp" alt="La Casa Del Mofongo Logo" class="header-logo-img">
+            <img src="assets/images/logo.webp" alt="La Casa Del Mofongo Logo" class="header-logo-img">
             <div class="header-brand-text">
               <span class="header-brand-title">La Casa Del Mofongo</span>
               <span class="header-brand-sub">Silver Spring, MD</span>
@@ -57,7 +57,7 @@
           <a href="about.html" class="${getActive('about.html')}">About Us</a>
           <a href="gallery.html" class="${getActive('gallery.html')}">Our Gallery</a>
           <a href="contact.html" class="${getActive('contact.html')}">Contact</a>
-          <a href="tel:+12408633750" style="color: var(--color-accent); font-weight: 700;">Reservation: (240) 863-3750</a>
+          <a href="tel:+12408633750" style="color: var(--color-primary-light); font-weight: 700;">Reservation: (240) 863-3750</a>
         </div>
       </header>
     `;
@@ -90,8 +90,8 @@
         <div class="footer-top">
           <div class="footer-top-container">
             <div class="footer-brand">
-              <img src="assets/images/CASA-DEL-MOFONGO.webp" alt="La Casa Del Mofongo">
-              <p style="color: #ffffff; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.08em;">
+              <img src="assets/images/logo.webp" alt="La Casa Del Mofongo Logo" class="footer-logo-img">
+              <p style="color: #ffffff; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.08em;">
                 La Casa Del Mofongo MD
               </p>
             </div>
