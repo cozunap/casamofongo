@@ -158,7 +158,7 @@ img {
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--color-accent);
+  color: var(--color-primary-light);
 }
 
 .nav-link.active::after {
@@ -168,7 +168,7 @@ img {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--color-accent);
+  background-color: var(--color-primary);
 }
 
 .nav-reservation-btn {
@@ -227,7 +227,7 @@ img {
 }
 
 .mobile-nav-drawer a.active {
-  color: var(--color-accent);
+  color: var(--color-primary-light);
 }
 
 /* ==========================================================================
