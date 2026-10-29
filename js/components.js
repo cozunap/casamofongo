@@ -1,6 +1,7 @@
 /**
  * La Casa Del Mofongo - Shared Components & Enhancements
  * Multi-page Navigation, Footer, Language Detection & Countdown Timer
+ * Location: Silver Spring, Maryland (DMV Area)
  */
 
 (function () {
@@ -10,32 +11,26 @@
 
   const i18n = {
     es: {
-      brandSub: 'Restaurante & Piano Bar',
+      brandSub: 'Sabor Dominicano & Caribeño • Maryland',
       navHome: 'Inicio',
-      navHeritage: 'Tradición',
       navMenuSneak: 'Especialidades',
-      navLocations: 'Ubicaciones',
+      navLocations: 'Ubicación & Horario',
       navContact: 'Contacto',
       navVIP: 'Acceso VIP',
       rights: 'Todos los derechos reservados.',
-      locationsTitle: 'Nuestras Sedes en Manhattan',
-      inwoodDesc: 'Cocina dominicana 24/7, música en vivo y Piano Bar en el corazón de Inwood.',
-      uptownDesc: 'El sabor icónico del mofongo artesanal en Washington Heights.',
-      open24h: 'Abierto 24 Horas'
+      locationSummary: '9441 Georgia Ave, Silver Spring, MD 20910',
+      openHours: 'Lunes a Domingo: 11:00 AM – 10:00 PM'
     },
     en: {
-      brandSub: 'Restaurant & Piano Bar',
+      brandSub: 'Dominican & Caribbean Cuisine • Maryland',
       navHome: 'Home',
-      navHeritage: 'Heritage',
       navMenuSneak: 'Specialties',
-      navLocations: 'Locations',
+      navLocations: 'Location & Hours',
       navContact: 'Contact',
       navVIP: 'VIP Access',
       rights: 'All rights reserved.',
-      locationsTitle: 'Our Manhattan Locations',
-      inwoodDesc: '24/7 authentic Dominican dining, live piano bar & nightlife in Inwood.',
-      uptownDesc: 'The iconic artisan mofongo experience in Washington Heights.',
-      open24h: 'Open 24 Hours'
+      locationSummary: '9441 Georgia Ave, Silver Spring, MD 20910',
+      openHours: 'Monday to Sunday: 11:00 AM – 10:00 PM'
     }
   };
 
@@ -106,7 +101,6 @@
       </header>
     `;
 
-    // Setup mobile drawer toggle
     const toggleBtn = document.getElementById('mobile-toggle-btn');
     const drawer = document.getElementById('mobile-drawer');
     if (toggleBtn && drawer) {
@@ -127,7 +121,7 @@
               La Casa Del <span class="highlight">Mofongo</span>
             </div>
             <p>
-              El templo culinario y nocturno de la auténtica gastronomía dominicana en Nueva York. Mofongos legendarios en más de 30 variedades, música en vivo y coctelería selecta.
+              El destino por excelencia de la auténtica gastronomía dominicana y caribeña en Silver Spring, Maryland y el área metropolitana de Washington D.C. Mofongos y trifongos artesanales, chicharrón crocante y jugos naturales.
             </p>
           </div>
 
@@ -142,31 +136,30 @@
           </div>
 
           <div class="footer-col">
-            <h4>Sedes Principales</h4>
+            <h4>Ubicación &amp; Contacto</h4>
             <ul class="footer-links">
-              <li><strong>Inwood:</strong> 546 W 207th St, NY 10034</li>
-              <li><strong>Washington Heights:</strong> 1447 St. Nicholas Ave</li>
-              <li><strong>Servicio:</strong> 24 Horas / 7 Días</li>
+              <li><strong>Dirección:</strong> 9441 Georgia Ave, Silver Spring, MD 20910</li>
+              <li><strong>Teléfono:</strong> <a href="tel:+12408633750" style="color: var(--color-gold);">(240) 863-3750</a></li>
+              <li><strong>Horario:</strong> Todos los días 11:00 AM – 10:00 PM</li>
             </ul>
           </div>
         </div>
 
         <div class="footer-bottom">
           <p>&copy; ${new Date().getFullYear()} La Casa Del Mofongo. ${texts.rights}</p>
-          <p style="color: var(--color-gold-light);">Nueva York, NY &bull; Experiencia Digital en Construcción</p>
+          <p style="color: var(--color-gold-light);">Silver Spring, Maryland &bull; Próximamente Nueva Plataforma Web</p>
         </div>
       </footer>
     `;
   }
 
-  // 4. Live Countdown to Grand Digital Re-launch
+  // 4. Live Countdown to Grand Digital Launch
   const daysEl = document.getElementById('days');
   const hoursEl = document.getElementById('hours');
   const minutesEl = document.getElementById('minutes');
   const secondsEl = document.getElementById('seconds');
 
   if (daysEl && hoursEl && minutesEl && secondsEl) {
-    // Set target date 28 days in the future
     const targetDate = new Date();
     targetDate.setDate(targetDate.getDate() + 28);
     targetDate.setHours(18, 0, 0, 0);
@@ -203,8 +196,8 @@
       if (input && input.value) {
         if (feedback) {
           feedback.textContent = isSpanish 
-            ? '¡Gracias! Te notificaremos primero cuando abramos las reservas exclusivas.' 
-            : 'Thank you! We will notify you first for exclusive table reservations.';
+            ? '¡Gracias! Te notificaremos de primero cuando lancemos el menú completo y pedidos en línea en Maryland.' 
+            : 'Thank you! We will notify you first when our full menu and online ordering launch in Maryland.';
           feedback.classList.add('is-visible');
         }
         input.value = '';
