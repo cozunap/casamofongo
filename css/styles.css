@@ -592,7 +592,7 @@ img {
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   display: flex;
-  align-items: center;
+  align-items: stretch;
   perspective: 1000px;
   transform-style: preserve-3d;
   transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease;
@@ -606,10 +606,13 @@ img {
 }
 
 .menu-card-img {
-  width: 130px;
-  height: 120px;
+  width: 140px;
+  height: 100%;
+  min-height: 120px;
+  align-self: stretch;
   object-fit: cover;
   flex-shrink: 0;
+  display: block;
   transition: transform 0.4s ease;
 }
 
