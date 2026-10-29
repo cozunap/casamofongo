@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/styles.css?v=3.5">
+  <link rel="stylesheet" href="css/styles.css?v=4.0">
   <!-- Favicon -->
   <link rel=icon type=image/x-icon href=favicon.ico>
   <link rel=icon type=image/png sizes=32x32 href=favicon-32x32.png>
@@ -83,7 +83,7 @@
       </div>
 
       <!-- 3 Photos Strip (from image 4) -->
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 3.5rem;">
+      <div class="responsive-tri-grid" style="margin-bottom: 3.5rem;">
         <div class="gallery-item" style="border-radius: 6px; overflow: hidden; aspect-ratio: 4/3;">
           <img src="assets/images/Plato10.webp" alt="Dominican Steak and Moro">
         </div>
@@ -101,7 +101,7 @@
   <section class="red-banner-bar" style="background: url('assets/images/banner-slide-home-7.webp') no-repeat center center / cover; position: relative;">
     <div style="position: absolute; inset: 0; background: rgba(168, 28, 28, 0.92);"></div>
     <div class="section-container" style="position: relative; z-index: 2;">
-      <div style="display: grid; grid-template-columns: 220px 1fr 280px; gap: 2rem; align-items: center;">
+      <div class="responsive-goals-grid">
         <div style="text-align: center;">
           <img src="assets/images/beer.webp" alt="Cold Beers & Cocktails" style="max-height: 140px; margin: 0 auto; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));">
         </div>
@@ -341,13 +341,13 @@
   </section>
 
   <!-- Dishes Showcase Carousel / Strip (6 photos from image 4) -->
-  <section style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; overflow: hidden; max-height: 200px;">
-    <img src="assets/images/Plato1.webp" alt="Picadera" style="width: 100%; height: 200px; object-fit: cover;">
-    <img src="assets/images/Plato11.webp" alt="Pollo Guisado" style="width: 100%; height: 200px; object-fit: cover;">
-    <img src="assets/images/Plato12.webp" alt="Carne Guisada" style="width: 100%; height: 200px; object-fit: cover;">
-    <img src="assets/images/Plato18.webp" alt="Pescado con Ensalada" style="width: 100%; height: 200px; object-fit: cover;">
-    <img src="assets/images/Plato19.webp" alt="Sopa Criolla" style="width: 100%; height: 200px; object-fit: cover;">
-    <img src="assets/images/Plato20.webp" alt="Sopa de Pollo" style="width: 100%; height: 200px; object-fit: cover;">
+  <section class="dishes-strip-grid">
+    <img src="assets/images/Plato1.webp" alt="Picadera">
+    <img src="assets/images/Plato11.webp" alt="Pollo Guisado">
+    <img src="assets/images/Plato12.webp" alt="Carne Guisada">
+    <img src="assets/images/Plato18.webp" alt="Pescado con Ensalada">
+    <img src="assets/images/Plato19.webp" alt="Sopa Criolla">
+    <img src="assets/images/Plato20.webp" alt="Sopa de Pollo">
   </section>
 
   <!-- Interactive Google Map Section with Elegant Corner Brand Card -->
@@ -383,7 +383,7 @@
   <div id="footer-placeholder"></div>
 
   <!-- Shared Scripts -->
-  <script src="js/components.js?v=3.3"></script>
+  <script src="js/components.js?v=4.0"></script>
   <script>
     function filterMenu(category) {
       const cards = document.querySelectorAll('#menu-items-grid .menu-card');

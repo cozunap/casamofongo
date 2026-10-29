@@ -1202,6 +1202,48 @@ img {
   }
 }
 
+/* Layout Utility Grids */
+.responsive-tri-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.responsive-goals-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr 280px;
+  gap: 2rem;
+  align-items: center;
+}
+
+.dishes-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  overflow: hidden;
+  max-height: 200px;
+}
+
+.dishes-strip-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.menu-feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.contact-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
 /* ==========================================================================
    Responsive Breakpoints
    ========================================================================== */
@@ -1215,8 +1257,27 @@ img {
   .story-grid {
     grid-template-columns: 1fr;
   }
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .menu-feature-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .menu-feature-row.reverse > div:first-child {
+    order: 2;
+  }
+  .menu-feature-row.reverse > div:last-child {
+    order: 1;
+  }
+  .contact-split-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .responsive-goals-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .dishes-strip-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-height: none;
   }
   .footer-top-container {
     grid-template-columns: 1fr;
@@ -1233,18 +1294,58 @@ img {
   }
 }
 
-@media (max-width: 600px) {
+/* Mobile Devices (Phones & Tablets - Strict 1 Column for all Cards) */
+@media (max-width: 768px) {
   .gallery-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
   .menu-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+  }
+  .responsive-tri-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .combos-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .classic-grid {
+    grid-template-columns: 1fr !important;
   }
   .menu-card {
     flex-direction: column;
+    text-align: center;
   }
   .menu-card-img {
-    width: 100%;
-    height: 180px;
+    width: 100% !important;
+    height: 220px !important;
+  }
+  .menu-card-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .dishes-strip-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .home-hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-slider-arrow {
+    display: none;
+  }
+  .header-container {
+    padding: 5px 1rem;
+  }
+  .header-logo-img {
+    height: 72px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dishes-strip-grid {
+    grid-template-columns: 1fr;
+  }
+  .home-hero-title {
+    font-size: 1.85rem;
   }
 }
