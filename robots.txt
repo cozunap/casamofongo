@@ -1,0 +1,23 @@
+# robots.txt for https://lacasadelmofongomd.net
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /*?*
+
+# Allow AI Answer Engines for AEO Citation
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+Sitemap: https://lacasadelmofongomd.net/sitemap.xml
