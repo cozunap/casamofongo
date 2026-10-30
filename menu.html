@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/styles.css?v=7.0">
+  <link rel="stylesheet" href="css/styles.css?v=7.1">
   <!-- Favicon -->
   <link rel=icon type=image/x-icon href=favicon.ico>
   <link rel=icon type=image/png sizes=32x32 href=favicon-32x32.png>
@@ -36,6 +36,101 @@
   <link rel=apple-touch-icon sizes=180x180 href=apple-touch-icon.png>
   <script src="js/lang-detect.js"></script>
   <link rel="preload" as="image" href="assets/images/MainPlato.webp" fetchpriority="high">
+  <!-- Menu & FoodEstablishment Schema for Search & Answer Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Menu",
+    "name": "La Casa Del Mofongo Dining Menu",
+    "description": "Authentic Caribbean, Dominican, and Latin American dishes, mofongos, and homemade desserts in Silver Spring, MD.",
+    "inLanguage": "en-US",
+    "hasMenuSection": [
+      {
+        "@type": "MenuSection",
+        "name": "Featured Main Courses",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "Camarones Encebollados y al Ajillo",
+            "description": "Jumbo Caribbean shrimp simmered in virgin olive oil, fragrant minced garlic, sautéed onions, sweet bell peppers, and white wine reduction.",
+            "offers": {
+              "@type": "Offer",
+              "price": "19.50",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Langosta Rellena de Camarones",
+            "description": "Tender Caribbean rock lobster tail grilled and generously stuffed with garlic shrimp, served with garden salad and golden plantains.",
+            "offers": {
+              "@type": "Offer",
+              "price": "32.00",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Pollo Guisado Tradicional",
+            "description": "Slow-cooked island braised chicken in savory creole tomato sauce infused with oregano, garlic, cilantro, and sweet peppers.",
+            "offers": {
+              "@type": "Offer",
+              "price": "14.50",
+              "priceCurrency": "USD"
+            }
+          }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Homemade Desserts",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "Flan de Queso",
+            "description": "Rich and creamy cream cheese custard glazed with golden amber caramel.",
+            "offers": {
+              "@type": "Offer",
+              "price": "8.33",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Flan Tradicional",
+            "description": "Silky classic Caribbean vanilla custard with caramel sauce.",
+            "offers": {
+              "@type": "Offer",
+              "price": "7.29",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Tres Leches",
+            "description": "Traditional sponge cake soaked in three milks and topped with whipped meringue.",
+            "offers": {
+              "@type": "Offer",
+              "price": "7.29",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Bizcocho Dominicano",
+            "description": "Authentic moist Dominican cake with pineapple filling and sweet suspiro frosting.",
+            "offers": {
+              "@type": "Offer",
+              "price": "7.29",
+              "priceCurrency": "USD"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
 </head>
 <body>
 
@@ -391,7 +486,7 @@
       <div style="margin-top: 4rem;">
         <div class="section-header" style="margin-bottom: 2rem;">
           <span class="section-sub">Sweet Delights</span>
-          <h2 class="section-title">DESSERTS / POSTRES</h2>
+          <h2 class="section-title">DESSERTS</h2>
           <p class="section-desc">Homemade traditional Caribbean sweets to complete your dining experience.</p>
         </div>
         <div class="classic-menu-columns">

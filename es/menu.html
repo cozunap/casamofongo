@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../css/styles.css?v=7.0">
+  <link rel="stylesheet" href="../css/styles.css?v=7.1">
   <!-- Favicon -->
   <link rel=icon type=image/x-icon href=favicon.ico>
   <link rel=icon type=image/png sizes=32x32 href=favicon-32x32.png>
@@ -36,6 +36,101 @@
   <link rel=apple-touch-icon sizes=180x180 href=apple-touch-icon.png>
   <script src="../js/lang-detect.js"></script>
   <link rel="preload" as="image" href="../assets/images/MainPlato.webp" fetchpriority="high">
+  <!-- Menu & FoodEstablishment Schema for Search & Answer Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Menu",
+    "name": "Menú Gastronómico La Casa Del Mofongo",
+    "description": "Platos auténticos caribeños, mofongos dominicanos hechos al pilón y postres caseros en Silver Spring, MD.",
+    "inLanguage": "es-US",
+    "hasMenuSection": [
+      {
+        "@type": "MenuSection",
+        "name": "Platos Principales",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "Camarones Encebollados y al Ajillo",
+            "description": "Camarones caribeños cocinados a fuego lento en aceite de oliva virgen, ajo picado aromático, cebollas salteadas y reducción de vino blanco.",
+            "offers": {
+              "@type": "Offer",
+              "price": "19.50",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Langosta Rellena de Camarones",
+            "description": "Cola de langosta caribeña asada a la parrilla y rellena de camarones al ajillo, servida con ensalada fresca y tostones dorados.",
+            "offers": {
+              "@type": "Offer",
+              "price": "32.00",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Pollo Guisado Tradicional",
+            "description": "Pollo tierno cocinado a fuego lento en salsa criolla de tomate aromatizada con orégano, ajo, cilantro fresco y pimientos dulces.",
+            "offers": {
+              "@type": "Offer",
+              "price": "14.50",
+              "priceCurrency": "USD"
+            }
+          }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "Postres Caseros",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "Flan de Queso",
+            "description": "Cremoso y delicioso flan de queso crema bañado en suave caramelo dorado.",
+            "offers": {
+              "@type": "Offer",
+              "price": "8.33",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Flan Tradicional",
+            "description": "Clásico flan caribeño de vainilla con textura sedosa y almíbar de caramelo.",
+            "offers": {
+              "@type": "Offer",
+              "price": "7.29",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Tres Leches",
+            "description": "Bizcocho tradicional bañado en mezcla de tres leches y decorado con merengue.",
+            "offers": {
+              "@type": "Offer",
+              "price": "7.29",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "MenuItem",
+            "name": "Bizcocho Dominicano",
+            "description": "Auténtico bizcocho dominicano relleno de piña y cubierto con dulce suspiro.",
+            "offers": {
+              "@type": "Offer",
+              "price": "7.29",
+              "priceCurrency": "USD"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
 </head>
 <body>
 
@@ -117,8 +212,8 @@
     <div class="section-container">
       <div class="section-header">
         <span class="section-sub">La Casa Del Mofongo</span>
-        <h2 class="section-title">SIGNATURE SPECIALTIES</h2>
-        <p class="section-desc">Every dish is made from scratch with genuine Dominican spices and fresh plantains.</p>
+        <h2 class="section-title">ESPECIALIDADES DE LA CASA</h2>
+        <p class="section-desc">Cada plato se prepara desde cero con auténticas especias dominicanas y plátanos frescos.</p>
       </div>
 
       <div class="menu-grid" id="menu-items-grid">
@@ -129,7 +224,7 @@
               <h4 class="menu-card-title">Carne de Res Frita</h4>
               <span class="menu-card-price">$16.50</span>
             </div>
-            <p class="menu-card-desc">Tender crispy fried beef chunks seasoned with island mojo.</p>
+            <p class="menu-card-desc">Trozos crujientes de carne de res marinados con sazón y mojo de la casa.</p>
           </div>
         </div>
 
@@ -140,7 +235,7 @@
               <h4 class="menu-card-title">Sopa de Mondongo</h4>
               <span class="menu-card-price">$14.00</span>
             </div>
-            <p class="menu-card-desc">Authentic Dominican tripe stew with yucca, plantain, and cilantro.</p>
+            <p class="menu-card-desc">Auténtica sopa criolla dominicana de mondongo con yuca, plátano y cilantro fresco.</p>
           </div>
         </div>
 
@@ -151,7 +246,7 @@
               <h4 class="menu-card-title">Mofongo Solo</h4>
               <span class="menu-card-price">$9.00</span>
             </div>
-            <p class="menu-card-desc">Hand-mashed green plantain in wooden mortar with garlic mojo.</p>
+            <p class="menu-card-desc">Plátano verde majado a mano al instante en pilón con mojo de ajo y caldo criollo.</p>
           </div>
         </div>
 
@@ -162,7 +257,7 @@
               <h4 class="menu-card-title">Trifongo Solo</h4>
               <span class="menu-card-price">$11.00</span>
             </div>
-            <p class="menu-card-desc">Trio mash: green plantain, ripe plantain, and savory cassava.</p>
+            <p class="menu-card-desc">Trío exquisito: plátano verde, plátano maduro dulce y yuca majados al pilón.</p>
           </div>
         </div>
 
@@ -173,7 +268,7 @@
               <h4 class="menu-card-title">Mofongo con Camarones</h4>
               <span class="menu-card-price">$19.50</span>
             </div>
-            <p class="menu-card-desc">Mashed plantain topped with garlic shrimp and rich savory sauce.</p>
+            <p class="menu-card-desc">Mofongo artesanal coronado con suculentos camarones al ajillo y salsa criolla.</p>
           </div>
         </div>
 
@@ -184,7 +279,7 @@
               <h4 class="menu-card-title">Mofongo de Pollo</h4>
               <span class="menu-card-price">$15.00</span>
             </div>
-            <p class="menu-card-desc">Served with tender shredded chicken in homemade creole sauce.</p>
+            <p class="menu-card-desc">Mofongo tradicional acompañado de pollo tierno desmenuzado en salsa criolla casera.</p>
           </div>
         </div>
 
@@ -195,7 +290,7 @@
               <h4 class="menu-card-title">Chicharrón de Cerdo</h4>
               <span class="menu-card-price">$16.00</span>
             </div>
-            <p class="menu-card-desc">Golden crisp pork belly chunks served with lime wedges and tostones.</p>
+            <p class="menu-card-desc">Crujiente chicharrón de cerdo con limón caribeño y tostones dorados.</p>
           </div>
         </div>
 
@@ -206,7 +301,7 @@
               <h4 class="menu-card-title">Masita de Cerdo</h4>
               <span class="menu-card-price">$15.50</span>
             </div>
-            <p class="menu-card-desc">Succulent seasoned pork bites fried with onions and lime juice.</p>
+            <p class="menu-card-desc">Trozos selectos de cerdo frito marinado con cebollas salteadas y jugo de limón.</p>
           </div>
         </div>
 
@@ -217,7 +312,7 @@
               <h4 class="menu-card-title">Chuletas Ahumadas</h4>
               <span class="menu-card-price">$15.00</span>
             </div>
-            <p class="menu-card-desc">Double smoked pork chops grilled with savory island marinade.</p>
+            <p class="menu-card-desc">Chuletas doblemente ahumadas a la parrilla con sazón tradicional de la isla.</p>
           </div>
         </div>
 
@@ -228,7 +323,7 @@
               <h4 class="menu-card-title">Longaniza Dominicana</h4>
               <span class="menu-card-price">$13.50</span>
             </div>
-            <p class="menu-card-desc">Country spiced Dominican sausage served hot with tostones.</p>
+            <p class="menu-card-desc">Longaniza criolla artesanal servida caliente con crujientes tostones.</p>
           </div>
         </div>
 
@@ -239,7 +334,7 @@
               <h4 class="menu-card-title">Pargo Rojo Frito</h4>
               <span class="menu-card-price">$24.00</span>
             </div>
-            <p class="menu-card-desc">Crispy whole red snapper with garlic sauce and fresh lemon.</p>
+            <p class="menu-card-desc">Pargo rojo entero frito crujiente con mojo de ajo y limón natural.</p>
           </div>
         </div>
 
@@ -250,7 +345,7 @@
               <h4 class="menu-card-title">Salmón al Ajillo</h4>
               <span class="menu-card-price">$20.00</span>
             </div>
-            <p class="menu-card-desc">Pan-seared Atlantic salmon fillet with white wine herb butter.</p>
+            <p class="menu-card-desc">Filete de salmón del Atlántico sellado con mantequilla de finas hierbas y vino blanco.</p>
           </div>
         </div>
       </div>
@@ -265,7 +360,7 @@
       <div style="margin-bottom: 4rem;">
         <div class="section-header" style="margin-bottom: 2rem;">
           <span class="section-sub">La Casa Del Mofongo</span>
-          <h2 class="section-title">OUR SIDE DISHES</h2>
+          <h2 class="section-title">NUESTRAS GUARNICIONES</h2>
         </div>
         <div class="classic-menu-columns">
           <div>
@@ -275,7 +370,7 @@
                 <span class="classic-item-dots"></span>
                 <span class="classic-item-price">$4.50</span>
               </div>
-              <p class="classic-item-desc">Crispy twice-fried savory plantain disks.</p>
+              <p class="classic-item-desc">Crujientes rodajas de plátano verde frito dos veces con sal marina.</p>
             </div>
             <div class="classic-menu-item">
               <div class="classic-menu-line">
@@ -283,7 +378,7 @@
                 <span class="classic-item-dots"></span>
                 <span class="classic-item-price">$4.50</span>
               </div>
-              <p class="classic-item-desc">Golden sweet caramelized plantains.</p>
+              <p class="classic-item-desc">Plátanos maduros fritos caramelizados y dulces al punto.</p>
             </div>
             <div class="classic-menu-item">
               <div class="classic-menu-line">
@@ -291,7 +386,7 @@
                 <span class="classic-item-dots"></span>
                 <span class="classic-item-price">$4.50</span>
               </div>
-              <p class="classic-item-desc">Cassava with onions and garlic mojo.</p>
+              <p class="classic-item-desc">Yuca tierna con cebollas salteadas y mojo de ajo criollo.</p>
             </div>
           </div>
           <div>
@@ -301,7 +396,7 @@
                 <span class="classic-item-dots"></span>
                 <span class="classic-item-price">$5.00</span>
               </div>
-              <p class="classic-item-desc">White rice with seasoned red or black beans.</p>
+              <p class="classic-item-desc">Arroz blanco suave acompañado de habichuelas rojas o negras guisadas.</p>
             </div>
             <div class="classic-menu-item">
               <div class="classic-menu-line">
@@ -309,7 +404,7 @@
                 <span class="classic-item-dots"></span>
                 <span class="classic-item-price">$6.00</span>
               </div>
-              <p class="classic-item-desc">Rice cooked with pigeon peas and coconut milk.</p>
+              <p class="classic-item-desc">Arroz tradicional cocinado con guandules y toque de coco.</p>
             </div>
             <div class="classic-menu-item">
               <div class="classic-menu-line">
@@ -317,7 +412,7 @@
                 <span class="classic-item-dots"></span>
                 <span class="classic-item-price">$5.00</span>
               </div>
-              <p class="classic-item-desc">Crisp lettuce, tomatoes, cucumbers, and house dressing.</p>
+              <p class="classic-item-desc">Lechuga fresca, tomates, pepinos y aderezo especial de la casa.</p>
             </div>
           </div>
         </div>
@@ -327,18 +422,18 @@
       <div style="margin-bottom: 4rem;">
         <div class="section-header" style="margin-bottom: 2rem; max-width: 950px;">
           <span class="section-sub">La Casa Del Mofongo</span>
-          <h2 class="section-title single-line-header">POULTRY &bull; APPETIZERS &bull; SALADS</h2>
+          <h2 class="section-title single-line-header">AVES &bull; APERITIVOS &bull; ENSALADAS</h2>
         </div>
         <div class="classic-menu-columns">
           <div>
-            <h3 class="classic-menu-col-title">APPETIZERS</h3>
+            <h3 class="classic-menu-col-title">APERITIVOS</h3>
             <div class="classic-menu-item">
               <div class="classic-menu-line">
                 <span class="classic-item-name">Gran Picadera Dominicana</span>
                 <span class="classic-item-dots"></span>
                 <span class="classic-item-price">$26.00</span>
               </div>
-              <p class="classic-item-desc">Pork chunks, longaniza, fried cheese, salami, tostones.</p>
+              <p class="classic-item-desc">Picadera completa con trozos de cerdo, longaniza, queso frito, salami y tostones.</p>
             </div>
             <div class="classic-menu-item">
               <div class="classic-menu-line">
@@ -346,7 +441,7 @@
                 <span class="classic-item-dots"></span>
                 <span class="classic-item-price">$3.00</span>
               </div>
-              <p class="classic-item-desc">Golden crisp turnovers filled with seasoned meat or cheese.</p>
+              <p class="classic-item-desc">Empanadillas crujientes rellenas de sabrosa carne sazonada o queso fundido.</p>
             </div>
             <div class="classic-menu-item">
               <div class="classic-menu-line">
@@ -354,19 +449,19 @@
                 <span class="classic-item-dots"></span>
                 <span class="classic-item-price">$9.00</span>
               </div>
-              <p class="classic-item-desc">Fried tropical cheese with pressed green plantains.</p>
+              <p class="classic-item-desc">Queso tropical frito acompañado de tostones de plátano verde.</p>
             </div>
           </div>
 
           <div>
-            <h3 class="classic-menu-col-title">POULTRY &amp; MEATS</h3>
+            <h3 class="classic-menu-col-title">AVES Y CARNES</h3>
             <div class="classic-menu-item">
               <div class="classic-menu-line">
                 <span class="classic-item-name">Pechuga de Pollo a la Plancha</span>
                 <span class="classic-item-dots"></span>
                 <span class="classic-item-price">$14.50</span>
               </div>
-              <p class="classic-item-desc">Grilled chicken breast seasoned with fresh garlic &amp; lemon.</p>
+              <p class="classic-item-desc">Pechuga jugosa a la plancha sazonada con ajo fresco y limón.</p>
             </div>
             <div class="classic-menu-item">
               <div class="classic-menu-line">
@@ -374,7 +469,7 @@
                 <span class="classic-item-dots"></span>
                 <span class="classic-item-price">$13.50</span>
               </div>
-              <p class="classic-item-desc">Crisp marinated bone-in chicken bites.</p>
+              <p class="classic-item-desc">Chicharrones crujientes de pollo con hueso marinados al estilo dominicano.</p>
             </div>
             <div class="classic-menu-item">
               <div class="classic-menu-line">
@@ -382,7 +477,7 @@
                 <span class="classic-item-dots"></span>
                 <span class="classic-item-price">$8.50</span>
               </div>
-              <p class="classic-item-desc">Served with french fries for kids under 12.</p>
+              <p class="classic-item-desc">Servido con papas fritas crujientes para niños menores de 12 años.</p>
             </div>
           </div>
         </div>
@@ -391,7 +486,7 @@
       <div style="margin-top: 4rem;">
         <div class="section-header" style="margin-bottom: 2rem;">
           <span class="section-sub">Dulces Tradicionales</span>
-          <h2 class="section-title">POSTRES CASEROS</h2>
+          <h2 class="section-title">POSTRES</h2>
           <p class="section-desc">Dulces artesanales caribeños para completar tu experiencia gastronómica.</p>
         </div>
         <div class="classic-menu-columns">
@@ -443,21 +538,21 @@
     <div class="section-container">
       <div class="section-header">
         <span class="section-sub" style="color: var(--color-accent-light);">La Casa Del Mofongo</span>
-        <h2 class="section-title" style="color: #ffffff;">JUICE &amp; DRINKS</h2>
-        <p style="color: #cccccc;">Great cocktails, happy hour beverages, and natural island juices.</p>
+        <h2 class="section-title" style="color: #ffffff;">JUGOS Y BEBIDAS</h2>
+        <p style="color: #cccccc;">Cócteles de primera, bebidas de happy hour y jugos tropicales naturales.</p>
       </div>
 
       <div class="classic-menu-columns" style="background: rgba(24, 24, 24, 0.95); padding: 3rem; border-radius: 4px; border: 1px solid var(--color-border-dark);">
         <!-- Juices -->
         <div>
-          <h3 class="classic-menu-col-title" style="color: var(--color-accent-light); border-color: var(--color-accent);">JUICES</h3>
+          <h3 class="classic-menu-col-title" style="color: var(--color-accent-light); border-color: var(--color-accent);">JUGOS NATURALES</h3>
           <div class="classic-menu-item">
             <div class="classic-menu-line">
               <span class="classic-item-name" style="background: transparent; color: #fff;">Morir Soñando</span>
               <span class="classic-item-dots" style="border-color: #444;"></span>
               <span class="classic-item-price" style="background: transparent; color: var(--color-accent);">$5.50</span>
             </div>
-            <p class="classic-item-desc" style="color: #999;">Fresh orange juice, evaporated milk, and cane sugar.</p>
+            <p class="classic-item-desc" style="color: #999;">Emblemática bebida dominicana con jugo de naranja natural, leche evaporada y azúcar de caña.</p>
           </div>
           <div class="classic-menu-item">
             <div class="classic-menu-line">
@@ -465,7 +560,7 @@
               <span class="classic-item-dots" style="border-color: #444;"></span>
               <span class="classic-item-price" style="background: transparent; color: var(--color-accent);">$5.00</span>
             </div>
-            <p class="classic-item-desc" style="color: #999;">Pure tart tropical passion fruit nectar.</p>
+            <p class="classic-item-desc" style="color: #999;">Néctar tropical natural de maracuyá / chinola fresca.</p>
           </div>
           <div class="classic-menu-item">
             <div class="classic-menu-line">
@@ -473,20 +568,20 @@
               <span class="classic-item-dots" style="border-color: #444;"></span>
               <span class="classic-item-price" style="background: transparent; color: var(--color-accent);">$5.00</span>
             </div>
-            <p class="classic-item-desc" style="color: #999;">Creamy tropical soursop smoothie.</p>
+            <p class="classic-item-desc" style="color: #999;">Batido cremoso natural de fruta de guanábana caribeña.</p>
           </div>
         </div>
 
         <!-- Cocktails -->
         <div>
-          <h3 class="classic-menu-col-title" style="color: var(--color-accent-light); border-color: var(--color-accent);">COCKTAILS &amp; BEER</h3>
+          <h3 class="classic-menu-col-title" style="color: var(--color-accent-light); border-color: var(--color-accent);">CÓCTELES Y CERVEZAS</h3>
           <div class="classic-menu-item">
             <div class="classic-menu-line">
               <span class="classic-item-name" style="background: transparent; color: #fff;">Classic Caribbean Mojito</span>
               <span class="classic-item-dots" style="border-color: #444;"></span>
               <span class="classic-item-price" style="background: transparent; color: var(--color-accent);">$11.00</span>
             </div>
-            <p class="classic-item-desc" style="color: #999;">White rum, fresh mint, lime juice, cane sugar, soda.</p>
+            <p class="classic-item-desc" style="color: #999;">Ron blanco, menta fresca, jugo de lima, azúcar de caña y soda.</p>
           </div>
           <div class="classic-menu-item">
             <div class="classic-menu-line">
@@ -494,7 +589,7 @@
               <span class="classic-item-dots" style="border-color: #444;"></span>
               <span class="classic-item-price" style="background: transparent; color: var(--color-accent);">$11.50</span>
             </div>
-            <p class="classic-item-desc" style="color: #999;">Coconut cream, fresh pineapple juice, and aged rum.</p>
+            <p class="classic-item-desc" style="color: #999;">Crema de coco sedosa, jugo de piña fresca y ron añejo caribeño.</p>
           </div>
           <div class="classic-menu-item">
             <div class="classic-menu-line">
@@ -502,7 +597,7 @@
               <span class="classic-item-dots" style="border-color: #444;"></span>
               <span class="classic-item-price" style="background: transparent; color: var(--color-accent);">$6.00</span>
             </div>
-            <p class="classic-item-desc" style="color: #999;">The iconic Dominican pilsner served ice cold.</p>
+            <p class="classic-item-desc" style="color: #999;">La auténtica y emblemática cerveza rubia dominicana servida vestida de novia (bien fría).</p>
           </div>
         </div>
       </div>
