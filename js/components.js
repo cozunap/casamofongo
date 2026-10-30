@@ -448,16 +448,44 @@
     startAutoScroll();
   }
 
+  // 8. FAQ Accordion Controller
+  function initFAQAccordion() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    if (!faqItems.length) return;
+
+    faqItems.forEach(item => {
+      const questionBtn = item.querySelector('.faq-question');
+      if (!questionBtn) return;
+
+      questionBtn.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        // Close others
+        faqItems.forEach(other => {
+          other.classList.remove('active');
+          const btn = other.querySelector('.faq-question');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isActive) {
+          item.classList.add('active');
+          questionBtn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  }
+
   // Run initialization
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       init3DEffects();
       initGalleryLightbox();
       initDishesCarousel();
+      initFAQAccordion();
     });
   } else {
     init3DEffects();
     initGalleryLightbox();
     initDishesCarousel();
+    initFAQAccordion();
   }
 })();
