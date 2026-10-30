@@ -1540,9 +1540,7 @@ img {
   overflow: hidden;
 }
 
-.menu-feature-row.reverse {
-  flex-direction: row-reverse;
-}
+/* reverse class removed in favor of consistent DOM order */
 
 .menu-feature-text {
   flex: 1 1 50%;
@@ -1775,11 +1773,12 @@ img {
     height: 300px;
     min-height: 300px;
   }
-  .menu-feature-row.reverse .menu-feature-media {
-    order: 2;
-  }
-  .menu-feature-row.reverse .menu-feature-text {
+  /* All mobile rows: media first, text second (or text first, media second) */
+  .menu-feature-media {
     order: 1;
+  }
+  .menu-feature-text {
+    order: 2;
   }
   .contact-split-grid {
     grid-template-columns: 1fr;
