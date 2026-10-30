@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../css/styles.css?v=6.6">
+  <link rel="stylesheet" href="../css/styles.css?v=6.7">
   <!-- Favicon -->
   <link rel=icon type=image/x-icon href=favicon.ico>
   <link rel=icon type=image/png sizes=32x32 href=favicon-32x32.png>
@@ -53,58 +53,61 @@
   </section>
 
   <!-- Featured Main Courses with Split Imagery (from Image 3) -->
-  <section class="section" style="background-color: #ffffff;">
-    <div class="section-container">
-      <div class="section-header">
-        <span class="section-sub">La Casa Del Mofongo</span>
-        <h2 class="section-title">MAIN COURSES</h2>
-        <p class="section-desc">Handcrafted entrees served with your choice of rice &amp; beans, tostones, or mofongo.</p>
-      </div>
+  <section style="background-color: #ffffff; padding: clamp(3.5rem, 6vw, 5rem) 0 0 0; width: 100%; overflow: hidden;">
+    <div class="section-header" style="padding: 0 1.5rem; margin-bottom: 3.5rem;">
+      <span class="section-sub">La Casa Del Mofongo</span>
+      <h2 class="section-title">PLATOS PRINCIPALES</h2>
+      <p class="section-desc">Platos tradicionales elaborados artesanalmente con su elección de arroz con habichuelas, tostones o mofongo.</p>
+    </div>
 
-      <!-- Feature Course 1: Garlic Shrimp -->
-      <div class="menu-feature-row" style="margin-bottom: 3.5rem;">
+    <!-- Fullwidth Flexbox Course Rows (3 Rows x 2 Columns) -->
+    <div style="width: 100%; display: flex; flex-direction: column; margin: 0; padding: 0;">
+
+      <!-- Row 1: Garlic Shrimp -->
+      <div class="menu-feature-row">
         <div class="menu-feature-text">
           <span class="menu-feature-badge">Especialidad del Chef</span>
-          <h3 style="font-size: 1.85rem; margin-top: 0.9rem; margin-bottom: 0.5rem; line-height: 1.25;">Camarones Encebollados y al Ajillo</h3>
-          <p style="color: var(--color-primary); font-size: 1.45rem; font-family: var(--font-serif); font-weight: 700; margin-bottom: 1.1rem;">$19.50</p>
-          <p style="margin-bottom: 0; line-height: 1.7; color: var(--color-text-light);">
+          <h3 style="font-size: clamp(1.8rem, 3.2vw, 2.3rem); margin-top: 1rem; margin-bottom: 0.6rem; line-height: 1.2;">Camarones Encebollados y al Ajillo</h3>
+          <p style="color: var(--color-primary); font-size: 1.5rem; font-family: var(--font-serif); font-weight: 700; margin-bottom: 1.25rem;">$19.50</p>
+          <p style="margin-bottom: 0; line-height: 1.75; color: var(--color-text-light); max-width: 540px; font-size: 1.05rem;">
             Camarones caribeños cocinados a fuego lento en aceite de oliva virgen, ajo picado aromático, cebollas salteadas y reducción de vino blanco.
           </p>
         </div>
         <div class="menu-feature-media">
-          <img src="../assets/images/Shrimp.webp?v=3" alt="Camarones al Ajillo">
+          <img src="../assets/images/Shrimp.webp?v=4" alt="Camarones Encebollados y al Ajillo">
         </div>
       </div>
 
-      <!-- Feature Course 2: Lobster Special -->
-      <div class="menu-feature-row reverse" style="margin-bottom: 3.5rem;">
+      <!-- Row 2: Lobster Special -->
+      <div class="menu-feature-row reverse">
         <div class="menu-feature-media">
-          <img src="../assets/images/Langosta.webp?v=3" alt="Langosta Rellena de Camarones">
+          <img src="../assets/images/Langosta.webp?v=4" alt="Langosta Rellena de Camarones">
         </div>
         <div class="menu-feature-text">
           <span class="menu-feature-badge">Especialidad Premium</span>
-          <h3 style="font-size: 1.85rem; margin-top: 0.9rem; margin-bottom: 0.5rem; line-height: 1.25;">Langosta Rellena de Camarones</h3>
-          <p style="color: var(--color-primary); font-size: 1.45rem; font-family: var(--font-serif); font-weight: 700; margin-bottom: 1.1rem;">$32.00</p>
-          <p style="margin-bottom: 0; line-height: 1.7; color: var(--color-text-light);">
+          <h3 style="font-size: clamp(1.8rem, 3.2vw, 2.3rem); margin-top: 1rem; margin-bottom: 0.6rem; line-height: 1.2;">Langosta Rellena de Camarones</h3>
+          <p style="color: var(--color-primary); font-size: 1.5rem; font-family: var(--font-serif); font-weight: 700; margin-bottom: 1.25rem;">$32.00</p>
+          <p style="margin-bottom: 0; line-height: 1.75; color: var(--color-text-light); max-width: 540px; font-size: 1.05rem;">
             Cola de langosta caribeña asada a la parrilla y rellena de camarones al ajillo, servida con ensalada fresca y tostones dorados.
           </p>
         </div>
       </div>
 
-      <!-- Feature Course 3: Pollo Guisado Criollo -->
+      <!-- Row 3: Pollo Guisado Criollo -->
       <div class="menu-feature-row">
         <div class="menu-feature-text">
           <span class="menu-feature-badge">Favorito Casero</span>
-          <h3 style="font-size: 1.85rem; margin-top: 0.9rem; margin-bottom: 0.5rem; line-height: 1.25;">Pollo Guisado Tradicional</h3>
-          <p style="color: var(--color-primary); font-size: 1.45rem; font-family: var(--font-serif); font-weight: 700; margin-bottom: 1.1rem;">$14.50</p>
-          <p style="margin-bottom: 0; line-height: 1.7; color: var(--color-text-light);">
+          <h3 style="font-size: clamp(1.8rem, 3.2vw, 2.3rem); margin-top: 1rem; margin-bottom: 0.6rem; line-height: 1.2;">Pollo Guisado Tradicional</h3>
+          <p style="color: var(--color-primary); font-size: 1.5rem; font-family: var(--font-serif); font-weight: 700; margin-bottom: 1.25rem;">$14.50</p>
+          <p style="margin-bottom: 0; line-height: 1.75; color: var(--color-text-light); max-width: 540px; font-size: 1.05rem;">
             Pollo tierno cocinado a fuego lento en salsa criolla de tomate aromatizada con orégano, ajo, cilantro fresco y pimientos dulces.
           </p>
         </div>
         <div class="menu-feature-media">
-          <img src="../assets/images/Stewed-Chicken.webp?v=3" alt="Pollo Guisado">
+          <img src="../assets/images/Stewed-Chicken.webp?v=4" alt="Pollo Guisado Tradicional">
         </div>
       </div>
+
     </div>
   </section>
 
