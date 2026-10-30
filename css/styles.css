@@ -1532,7 +1532,7 @@ img {
   align-items: stretch;
   background: #ffffff;
   border: 1px solid var(--color-border);
-  border-radius: 8px;
+  border-radius: 0 !important;
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
