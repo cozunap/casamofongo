@@ -521,17 +521,150 @@
   }
 
   // Run initialization
+  
+  // 6. Proximity / GPS Smart Map Prompt
+  function initProximityWidget() {
+    // Only show if user has not dismissed it in this session
+    if (sessionStorage.getItem('mofongo_proximity_dismissed') === 'true') {
+      return;
+    }
+
+    const LAT_REST = 39.0095285;
+    const LNG_REST = -77.0402504;
+
+    const isApple = /Mac|iPhone|iPod|iPad/i.test(navigator.userAgent);
+    const appleMapsUrl = 'https://maps.apple.com/?daddr=9441+Georgia+Ave,+Silver+Spring,+MD+20910';
+    const googleMapsUrl = 'https://www.google.com/maps/dir/?api=1&destination=9441+Georgia+Ave,+Silver+Spring,+MD+20910';
+    const directMapUrl = isApple ? appleMapsUrl : googleMapsUrl;
+
+    const t = isSpanish ? {
+      title: '¿Cerca de Nosotros?',
+      desc: '9441 Georgia Ave &bull; Estacionamiento gratis',
+      btnDirections: 'Cómo Llegar',
+      btnCalc: 'Calcular distancia',
+      milesAway: '¡Estás a solo {dist} mi!',
+      farAway: '¡Visítanos hoy en Silver Spring!',
+      denied: 'Ubicación desactivada'
+    } : {
+      title: 'In the Neighborhood?',
+      desc: '9441 Georgia Ave &bull; Free parking on-site',
+      btnDirections: 'Get Directions',
+      btnCalc: 'Calculate distance',
+      milesAway: "You're only {dist} mi away!",
+      farAway: 'Visit us today in Silver Spring!',
+      denied: 'Location unavailable'
+    };
+
+    const widget = document.createElement('div');
+    widget.className = 'proximity-widget';
+    widget.setAttribute('role', 'complementary');
+    widget.setAttribute('aria-label', t.title);
+    widget.innerHTML = `
+      <button class="proximity-close-btn" aria-label="Close">&times;</button>
+      <div class="proximity-content">
+        <div class="proximity-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </div>
+        <div class="proximity-text-wrap">
+          <h4 class="proximity-title" id="prox-title">${t.title}</h4>
+          <p class="proximity-desc" id="prox-desc">${t.desc}</p>
+        </div>
+      </div>
+      <div class="proximity-actions">
+        <a href="${directMapUrl}" target="_blank" rel="noopener noreferrer" class="proximity-btn-maps">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+          </svg>
+          <span>${t.btnDirections}</span>
+        </a>
+        <button class="proximity-btn-calc" id="prox-calc-btn">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="12 8 8 12 12 16 12 8"></polygon>
+          </svg>
+          <span id="prox-calc-label">${t.btnCalc}</span>
+        </button>
+      </div>
+    `;
+
+    document.body.appendChild(widget);
+
+    // Show after 3.5 seconds
+    setTimeout(() => {
+      widget.classList.add('is-visible');
+    }, 3500);
+
+    // Close button
+    widget.querySelector('.proximity-close-btn').addEventListener('click', () => {
+      widget.classList.remove('is-visible');
+      sessionStorage.setItem('mofongo_proximity_dismissed', 'true');
+    });
+
+    // Distance calculation on click
+    const calcBtn = widget.querySelector('#prox-calc-btn');
+    calcBtn.addEventListener('click', () => {
+      if (!navigator.geolocation) {
+        document.getElementById('prox-desc').textContent = t.denied;
+        calcBtn.style.display = 'none';
+        return;
+      }
+
+      calcBtn.disabled = true;
+      document.getElementById('prox-calc-label').textContent = '...';
+
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const lat = pos.coords.latitude;
+          const lng = pos.coords.longitude;
+          
+          // Haversine formula in miles
+          const R = 3958.8; // Earth radius in miles
+          const dLat = (lat - LAT_REST) * Math.PI / 180;
+          const dLng = (lng - LNG_REST) * Math.PI / 180;
+          const a = 
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(LAT_REST * Math.PI / 180) * Math.cos(lat * Math.PI / 180) * 
+            Math.sin(dLng / 2) * Math.sin(dLng / 2);
+          const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+          const distance = R * c;
+
+          const titleEl = document.getElementById('prox-title');
+          const descEl = document.getElementById('prox-desc');
+
+          if (distance <= 5.0) {
+            titleEl.textContent = t.milesAway.replace('{dist}', distance.toFixed(1));
+            descEl.textContent = '9441 Georgia Ave &bull; ' + (distance <= 1.5 ? (isSpanish ? '¡Llegas en 3 minutos!' : '3 min drive!') : (isSpanish ? '¡Llegas en minutos!' : 'Minutes away!'));
+          } else {
+            titleEl.textContent = t.farAway;
+            descEl.textContent = t.desc;
+          }
+          calcBtn.style.display = 'none';
+        },
+        () => {
+          // If user denies permission, keep elegant fallback
+          calcBtn.style.display = 'none';
+        },
+        { timeout: 8000, maximumAge: 60000 }
+      );
+    });
+  }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       init3DEffects();
       initGalleryLightbox();
       initDishesCarousel();
       initFAQAccordion();
+      initProximityWidget();
     });
   } else {
     init3DEffects();
     initGalleryLightbox();
     initDishesCarousel();
     initFAQAccordion();
+    initProximityWidget();
   }
 })();
