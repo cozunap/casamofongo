@@ -204,5 +204,39 @@
       "price": "$6.00",
       "description": "The iconic Dominican pilsner served ice cold."
     }
+  ],
+  "classic_desserts": [
+    {
+      "id": "dessert-1",
+      "name": "Flan de Queso",
+      "category": "desserts",
+      "price": "$8.33",
+      "description": "Rich and creamy cream cheese custard glazed with golden amber caramel.",
+      "image": "assets/images/Carne-de-Res-Frita.webp"
+    },
+    {
+      "id": "dessert-2",
+      "name": "Flan Tradicional",
+      "category": "desserts",
+      "price": "$7.29",
+      "description": "Silky classic Caribbean vanilla custard with caramel sauce.",
+      "image": "assets/images/Mofongo-Solo.webp"
+    },
+    {
+      "id": "dessert-3",
+      "name": "Tres Leches",
+      "category": "desserts",
+      "price": "$7.29",
+      "description": "Traditional sponge cake soaked in three milks and topped with whipped meringue.",
+      "image": "assets/images/Trifongo-Camarones.webp"
+    },
+    {
+      "id": "dessert-4",
+      "name": "Bizcocho Dominicano",
+      "category": "desserts",
+      "price": "$7.29",
+      "description": "Authentic moist Dominican cake with pineapple filling and sweet suspiro frosting.",
+      "image": "assets/images/Mofongo-Pollo.webp"
+    }
   ]
 }
