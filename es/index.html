@@ -63,6 +63,7 @@
     "hasMap": "https://maps.google.com/?q=9441+Georgia+Ave+Silver+Spring+MD+20910",
     "menu": "https://lacasadelmofongomd.net/menu.html",
     "acceptsReservations": "True",
+    "areaServed": ["Silver Spring", "Takoma Park", "Bethesda", "Wheaton", "Hyattsville", "College Park", "Washington D.C.", "Montgomery County"],
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -88,42 +89,42 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What makes the mofongo at La Casa Del Mofongo authentic?",
+        "name": "¿Qué hace que el mofongo en La Casa Del Mofongo sea auténtico?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our mofongo is handcrafted from fresh green plantains, fried to golden perfection, and mashed to order in traditional wooden pilones with garlic mojo, savory chicharrón, and rich savory broth. We also serve Trifongo (green plantain, sweet ripe maduro, and cassava) crowned with fresh garlic shrimp, braised creole chicken, or roasted pork."
+          "text": "Nuestro mofongo es elaborado artesanalmente al instante a partir de plátanos verdes frescos, fritos a la perfección dorada y majados en pilones tradicionales de madera con mojo de ajo, chicharrón crujiente y caldo sabroso. También servimos Trifongo (plátano verde, maduro dulce y yuca) coronado con camarones al ajillo, pollo guisado criollo o pernil asado."
         }
       },
       {
         "@type": "Question",
-        "name": "Where is La Casa Del Mofongo located in Silver Spring, MD?",
+        "name": "¿Dónde está ubicada La Casa Del Mofongo en Silver Spring, MD?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We are conveniently located at 9441 Georgia Ave, Silver Spring, MD 20910, easily accessible from the Capital Beltway (I-495), Downtown Silver Spring, Wheaton, and Washington D.C. Free customer parking is available."
+          "text": "Estamos ubicados convenientemente en 9441 Georgia Ave, Silver Spring, MD 20910, con fácil acceso desde el Capital Beltway (I-495), Downtown Silver Spring, Wheaton y Washington D.C. Disponemos de estacionamiento gratuito para clientes."
         }
       },
       {
         "@type": "Question",
-        "name": "Do you accept reservations and offer catering for private events?",
+        "name": "¿Aceptan reservaciones y ofrecen servicio de catering para eventos?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! We welcome table reservations, walk-ins, birthday celebrations, and family gatherings. For parties of 5 or more or birthday combo packages, call us directly at (240) 863-3750. We also provide full party platters and catering across Montgomery County and the DMV area."
+          "text": "¡Sí! Aceptamos reservaciones de mesas, visitas sin cita previa, cumpleaños y reuniones familiares. Para grupos de 5 o más personas o paquetes de cumpleaños, llámenos directamente al (240) 863-3750. También ofrecemos bandejas para fiestas y catering en todo el condado de Montgomery y el área del DMV."
         }
       },
       {
         "@type": "Question",
-        "name": "What are your hours of operation?",
+        "name": "¿Cuál es el horario de atención?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We are open 7 days a week: Monday through Thursday from 11:00 am to 10:00 pm, and Friday through Sunday from 11:00 am to 2:00 am with late-night food, Caribbean cocktails, and sports entertainment."
+          "text": "Abrimos los 7 días de la semana: de lunes a jueves de 11:00 am a 10:00 pm, y de viernes a domingo de 11:00 am a 2:00 am con comida nocturna, cócteles caribeños y entretenimiento deportivo."
         }
       },
       {
         "@type": "Question",
-        "name": "What other Latin American & Caribbean specialties do you serve?",
+        "name": "¿Qué otras especialidades latinoamericanas y caribeñas ofrecen?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Beyond our signature mofongos, our kitchen prepares authentic Dominican sancocho, hearty sopa de mondongo, carne de res frita, chicharrón de cerdo, bistec encebollado, whole fried red snapper, and savory Salvadoran dishes, paired with ice-cold Presidente beer and tropical cocktails."
+          "text": "Además de nuestros famosos mofongos, preparamos sancocho dominicano auténtico, sopa de mondongo, carne de res frita, chicharrón de cerdo, bistec encebollado, pargo rojo frito entero y platos tradicionales salvadoreños, acompañados con cerveza Presidente bien fría y cócteles tropicales."
         }
       }
     ]
@@ -135,13 +136,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../css/styles.css?v=6.8">
+  <link rel="stylesheet" href="../css/styles.css?v=6.9">
   <!-- Favicon -->
   <link rel=icon type=image/x-icon href=favicon.ico>
   <link rel=icon type=image/png sizes=32x32 href=favicon-32x32.png>
   <link rel=icon type=image/png sizes=192x192 href=favicon-192x192.png>
   <link rel=apple-touch-icon sizes=180x180 href=apple-touch-icon.png>
   <script src="../js/lang-detect.js"></script>
+  <link rel="preload" as="image" href="../assets/images/silder2.webp" fetchpriority="high">
 </head>
 <body>
 
@@ -465,72 +467,72 @@
       <div class="section-header" style="margin-bottom: 2rem;">
         <span class="section-sub">¿Preguntas Frecuentes?</span>
         <h2 class="section-title">Preguntas Frecuentes</h2>
-        <p class="section-desc">Everything you need to know about dining, reservations, and authentic Dominican mofongos in Silver Spring, MD.</p>
+        <p class="section-desc">Todo lo que necesitas saber sobre cenas, reservaciones y mofongos dominicanos auténticos en Silver Spring, MD.</p>
       </div>
 
       <div class="faq-list">
         <!-- Question 1 -->
         <div class="faq-item active">
           <button class="faq-question" aria-expanded="true">
-            <span>What makes the mofongo at La Casa Del Mofongo authentic?</span>
+            <span>¿Qué hace que el mofongo en La Casa Del Mofongo sea auténtico?</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
           <div class="faq-answer">
-            Our mofongo is handcrafted from fresh green plantains, fried to golden perfection, and mashed to order in traditional wooden pilones with garlic mojo, savory chicharrón, and rich savory broth. We also serve Trifongo (green plantain, sweet ripe maduro, and cassava) crowned with fresh garlic shrimp, braised creole chicken, or roasted pork.
+            Nuestro mofongo es elaborado artesanalmente al instante a partir de plátanos verdes frescos, fritos a la perfección dorada y majados en pilones tradicionales de madera con mojo de ajo, chicharrón crujiente y caldo sabroso. También servimos Trifongo (plátano verde, maduro dulce y yuca) coronado con camarones al ajillo, pollo guisado criollo o pernil asado.
           </div>
         </div>
 
         <!-- Question 2 -->
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            <span>Where is La Casa Del Mofongo located in Silver Spring, MD?</span>
+            <span>¿Dónde está ubicada La Casa Del Mofongo en Silver Spring, MD?</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
           <div class="faq-answer">
-            We are conveniently located at <strong>9441 Georgia Ave, Silver Spring, MD 20910</strong>, easily accessible from the Capital Beltway (I-495), Downtown Silver Spring, Wheaton, and Washington D.C. Free customer parking is available.
+            Estamos ubicados convenientemente en <strong>9441 Georgia Ave, Silver Spring, MD 20910</strong>, con fácil acceso desde el Capital Beltway (I-495), Downtown Silver Spring, Wheaton y Washington D.C. Disponemos de estacionamiento gratuito para nuestros clientes.
           </div>
         </div>
 
         <!-- Question 3 -->
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            <span>Do you accept reservations and offer catering for private events?</span>
+            <span>¿Aceptan reservaciones y ofrecen servicio de catering para eventos?</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
           <div class="faq-answer">
-            Yes! We welcome table reservations, walk-ins, birthday celebrations, and family gatherings. For parties of 5 or more or birthday combo packages, call us directly at <a href="tel:+12408633750" style="color: var(--color-primary); font-weight: 700;">(240) 863-3750</a>. We also provide full party platters and catering across Montgomery County and the DMV area.
+            ¡Sí! Aceptamos reservaciones de mesas, visitas sin cita previa, cumpleaños y reuniones familiares. Para grupos de 5 o más personas o paquetes de cumpleaños, llámenos directamente al <a href="tel:+12408633750" style="color: var(--color-primary); font-weight: 700;">(240) 863-3750</a>. También ofrecemos bandejas para fiestas y servicio de catering en todo el condado de Montgomery y el área del DMV.
           </div>
         </div>
 
         <!-- Question 4 -->
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            <span>What are your hours of operation?</span>
+            <span>¿Cuál es el horario de atención?</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
           <div class="faq-answer">
-            We are open 7 days a week: Monday through Thursday from 11:00 am to 10:00 pm, and Friday through Sunday from 11:00 am to 2:00 am with late-night food, Caribbean cocktails, and sports entertainment.
+            Abrimos los 7 días de la semana: de lunes a jueves de 11:00 am a 10:00 pm, y de viernes a domingo de 11:00 am a 2:00 am con comida nocturna, cócteles caribeños y entretenimiento deportivo.
           </div>
         </div>
 
         <!-- Question 5 -->
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
-            <span>What other Latin American &amp; Caribbean specialties do you serve?</span>
+            <span>¿Qué otras especialidades latinoamericanas y caribeñas ofrecen?</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
           <div class="faq-answer">
-            Beyond our signature mofongos, our kitchen prepares authentic Dominican sancocho, hearty sopa de mondongo, carne de res frita, chicharrón de cerdo, bistec encebollado, whole fried red snapper, and savory Salvadoran dishes, paired with ice-cold Presidente beer and tropical cocktails.
+            Además de nuestros famosos mofongos, preparamos sancocho dominicano auténtico, sopa de mondongo, carne de res frita, chicharrón de cerdo, bistec encebollado, pargo rojo frito entero y platos tradicionales salvadoreños, acompañados con cerveza Presidente bien fría y cócteles tropicales.
           </div>
         </div>
       </div>
@@ -589,7 +591,7 @@
 
   <!-- Shared Scripts -->
   <script src="../js/cms.js?v=4.2"></script>
-  <script src="../js/components.js?v=5.7"></script>
+  <script src="../js/components.js?v=5.8"></script>
   <script>
     // Live CMS Data binding for Index Menu
     (async function() {

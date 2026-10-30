@@ -33,9 +33,11 @@
     reservation: 'Reservación',
     location: 'UBICACIÓN',
     hours: 'HORARIO DE ATENCIÓN',
+    serviceArea: 'ÁREAS DE SERVICIO',
     monThu: 'LUN-JUE 11am - 10pm',
     friSun: 'VIE-DOM 11am - 2am',
     features: 'Cócteles de primera &bull; Platos de Happy Hour &bull; Menú infantil',
+    areas: 'Silver Spring &bull; Takoma Park &bull; Bethesda &bull; Wheaton &bull; Hyattsville &bull; College Park &bull; Washington D.C.',
     rights: 'Todos los derechos reservados.',
     developed: 'Diseñado y Desarrollado por'
   } : {
@@ -47,9 +49,11 @@
     reservation: 'Reservation',
     location: 'LOCATION',
     hours: 'OPENING HOURS',
+    serviceArea: 'AREAS SERVED',
     monThu: 'MON-THU 11am - 10pm',
     friSun: 'FRI-SUN 11am - 2am',
     features: 'Great cocktails &bull; Happy hour food &bull; Kids\' menu',
+    areas: 'Silver Spring &bull; Takoma Park &bull; Bethesda &bull; Wheaton &bull; Hyattsville &bull; College Park &bull; Washington D.C.',
     rights: 'All rights reserved.',
     developed: 'Designed and Developed by'
   };
@@ -150,6 +154,12 @@
               <p>${labels.monThu}</p>
               <p>${labels.friSun}</p>
               <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.9;">${labels.features}</p>
+            </div>
+
+            <div class="footer-col">
+              <h4>${labels.serviceArea}</h4>
+              <p style="font-size: 0.85rem; line-height: 1.6; opacity: 0.95;">${labels.areas}</p>
+              <p style="margin-top: 0.5rem; font-size: 0.82rem; opacity: 0.85;">Montgomery County &bull; DMV Area</p>
             </div>
           </div>
         </div>
