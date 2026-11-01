@@ -675,12 +675,13 @@ img {
 }
 
 .menu-card-title {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-family: Montserrat, sans-serif;
+  font-size: 15px;
   font-weight: 900;
+  line-height: 18px;
+  letter-spacing: 0.34px;
+  color: #222;
   text-transform: uppercase;
-  color: var(--color-text-main);
-  letter-spacing: 0.02em;
   flex: 1;
   min-width: 0;
 }
