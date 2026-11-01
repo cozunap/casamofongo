@@ -61,7 +61,7 @@
       "category": "mofongo seafood",
       "price": "$25.00",
       "description": "Signature mashed plantains crowned with jumbo garlic shrimp in savory creole sauce.",
-      "image": "assets/images/Trifongo-Camarones.webp"
+      "image": "assets/images/Shrimp.webp"
     },
     {
       "id": "card-6",
@@ -69,7 +69,7 @@
       "category": "mofongo meats",
       "price": "$19.79",
       "description": "Handcrafted plantain mofongo served with savory braised creole chicken.",
-      "image": "assets/images/Mofongo-Pollo.webp"
+      "image": "assets/images/Mofongo-de-Pollo.webp"
     },
     {
       "id": "card-7",
@@ -77,7 +77,7 @@
       "category": "meats",
       "price": "$19.79",
       "description": "Deep-fried crisp pork skin and cracklings served with tostones and fresh lime.",
-      "image": "assets/images/Chicharron-Cerdo.webp"
+      "image": "assets/images/Plato15.webp"
     },
     {
       "id": "card-8",
@@ -97,11 +97,11 @@
     },
     {
       "id": "card-10",
-      "name": "Carne Guisada",
+      "name": "Longaniza Dominicana",
       "category": "meats",
       "price": "$20.83",
-      "description": "Slow-cooked tender beef stew simmered in savory Caribbean creole sauce.",
-      "image": "assets/images/Carne-de-Res-Frita.webp"
+      "description": "Artisanal Caribbean pork sausage served with fried plantains and lime.",
+      "image": "assets/images/Plato14.webp"
     },
     {
       "id": "card-11",
@@ -109,7 +109,7 @@
       "category": "seafood",
       "price": "$26.04",
       "description": "Crispy whole red snapper seasoned with island citrus, garlic mojo, and herbs.",
-      "image": "assets/images/Pargo-Rojo.webp"
+      "image": "assets/images/Red-Snapper.webp"
     },
     {
       "id": "card-12",
