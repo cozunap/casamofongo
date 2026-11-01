@@ -2033,6 +2033,16 @@ img {
 /* ==========================================================================
    Mobile App-Like Experience (Bottom Bar, Safe Area, Tap Targets)
    ========================================================================== */
+.mobile-app-bottom-bar {
+  display: none;
+}
+.app-bar-item svg {
+  width: 20px;
+  height: 20px;
+  max-width: 20px;
+  max-height: 20px;
+}
+
 @media (max-width: 768px) {
   body {
     padding-bottom: 72px; /* Space for Mobile App Bottom Bar */
