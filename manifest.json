@@ -1,0 +1,23 @@
+{
+  "name": "La Casa Del Mofongo",
+  "short_name": "Casa Mofongo",
+  "description": "Authentic Caribbean & Dominican Cuisine in Silver Spring, MD",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#111111",
+  "theme_color": "#a70d1c",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
