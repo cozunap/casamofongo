@@ -2051,3 +2051,93 @@ img {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
   }
 }
+
+
+/* ==========================================================================
+   Floating Social Media Sidebar (Right Side)
+   ========================================================================== */
+.floating-social-sidebar {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 9980;
+  padding: 8px 6px;
+  background: rgba(18, 18, 18, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-right: none;
+  border-radius: 12px 0 0 12px;
+  box-shadow: -4px 6px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-social-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.floating-social-btn svg {
+  width: 18px;
+  height: 18px;
+  max-width: 18px;
+  max-height: 18px;
+  fill: currentColor;
+  transition: transform 0.25s ease;
+}
+
+.floating-social-btn:hover {
+  transform: translateX(-4px) scale(1.1);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+.floating-social-google:hover {
+  background: #ea4335;
+  border-color: #ea4335;
+}
+
+.floating-social-facebook:hover {
+  background: #1877f2;
+  border-color: #1877f2;
+}
+
+.floating-social-instagram:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  border-color: #dc2743;
+}
+
+.floating-social-yelp:hover {
+  background: #d32323;
+  border-color: #d32323;
+}
+
+@media (max-width: 768px) {
+  .floating-social-sidebar {
+    gap: 6px;
+    padding: 6px 4px;
+    border-radius: 10px 0 0 10px;
+  }
+  .floating-social-btn {
+    width: 34px;
+    height: 34px;
+  }
+  .floating-social-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+}

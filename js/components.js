@@ -705,7 +705,44 @@
     document.body.appendChild(bar);
   }
 
-  if (document.readyState === 'loading') {
+  
+  // 8. Floating Social Media Sidebar (Right Side)
+  function initFloatingSocialSidebar() {
+    if (document.querySelector('.floating-social-sidebar')) return;
+
+    const sidebar = document.createElement('aside');
+    sidebar.className = 'floating-social-sidebar';
+    sidebar.setAttribute('aria-label', isSpanish ? 'Redes Sociales y Reseñas' : 'Social Media & Reviews');
+    sidebar.innerHTML = `
+      <a href="https://www.google.com/search?q=la+casa+del+mofongo+md" target="_blank" rel="noopener noreferrer" class="floating-social-btn floating-social-google" aria-label="Google Profile & Reviews">
+        <svg viewBox="0 0 24 24">
+          <path d="M12.24 10.285V14.4h6.887C18.2 16.8 15.645 18.5 12.24 18.5c-3.59 0-6.5-2.91-6.5-6.5s2.91-6.5 6.5-6.5c1.635 0 3.125.605 4.275 1.6l3.06-3.06C17.67 2.21 15.11 1.25 12.24 1.25 6.31 1.25 1.5 6.06 1.5 12s4.81 10.75 10.74 10.75c6.2 0 10.31-4.36 10.31-10.49 0-.7-.075-1.38-.21-1.975H12.24z"/>
+        </svg>
+      </a>
+
+      <a href="https://www.instagram.com/lacasadelmofongomd" target="_blank" rel="noopener noreferrer" class="floating-social-btn floating-social-instagram" aria-label="Instagram">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      </a>
+
+      <a href="https://www.facebook.com/lacasadelmofongomd" target="_blank" rel="noopener noreferrer" class="floating-social-btn floating-social-facebook" aria-label="Facebook">
+        <svg viewBox="0 0 24 24">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      </a>
+
+      <a href="https://www.yelp.com/biz/la-casa-del-mofongo-silver-spring" target="_blank" rel="noopener noreferrer" class="floating-social-btn floating-social-yelp" aria-label="Yelp Reviews">
+        <svg viewBox="0 0 24 24">
+          <path d="M21.036 16.582c-.17.49-.49.92-.93 1.25-.43.32-.95.49-1.49.49-.41 0-.82-.1-1.18-.3l-4.78-2.61c-.48-.26-.78-.76-.78-1.31 0-.55.3-1.05.78-1.31l4.78-2.61c.36-.2.77-.3 1.18-.3.54 0 1.06.17 1.49.49.44.33.76.76.93 1.25.17.49.2 1.02.08 1.53-.12.51-.39.96-.78 1.3l-2.05 1.77 2.05 1.77c.39.34.66.79.78 1.3.12.51.09 1.04-.08 1.53zM12 9.5c.83 0 1.5-.67 1.5-1.5V1.5C13.5.67 12.83 0 12 0s-1.5.67-1.5 1.5V8c0 .83.67 1.5 1.5 1.5zm-5.45 2.17l-4.78-2.61c-.36-.2-.77-.3-1.18-.3-.54 0-1.06.17-1.49.49-.44.33-.76.76-.93 1.25-.17.49-.2 1.02-.08 1.53.12.51.39.96.78 1.3l2.05 1.77-2.05 1.77c-.39.34-.66.79-.78 1.3-.12.51-.09 1.04.08 1.53.17.49.49.92.93 1.25.43.32.95.49 1.49.49.41 0 .82-.1 1.18-.3l4.78-2.61c.48-.26.78-.76.78-1.31 0-.55-.3-1.05-.78-1.31zM9.5 15.5c0-.83-.67-1.5-1.5-1.5H1.5C.67 14 0 14.67 0 15.5s.67 1.5 1.5 1.5H8c.83 0 1.5-.67 1.5-1.5z"/>
+        </svg>
+      </a>
+    `;
+
+    document.body.appendChild(sidebar);
+  }
+
+if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       init3DEffects();
       initGalleryLightbox();
@@ -713,6 +750,7 @@
       initFAQAccordion();
       initProximityWidget();
       initMobileAppBottomBar();
+      initFloatingSocialSidebar();
     });
   } else {
     init3DEffects();
@@ -721,5 +759,6 @@
     initFAQAccordion();
     initProximityWidget();
     initMobileAppBottomBar();
+    initFloatingSocialSidebar();
   }
 })();
