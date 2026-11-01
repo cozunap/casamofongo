@@ -431,8 +431,6 @@
   // 7. Dishes Continuous Carousel Slider Controller
   function initDishesCarousel() {
     const track = document.getElementById('dishes-carousel-track');
-    const prevBtn = document.getElementById('dishes-prev-btn');
-    const nextBtn = document.getElementById('dishes-next-btn');
     if (!track) return;
 
     let autoScrollTimer = null;
@@ -458,20 +456,6 @@
       } else {
         track.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
       }
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        scrollNext();
-      });
-    }
-
-    if (prevBtn) {
-      prevBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        scrollPrev();
-      });
     }
 
     // Auto scroll every 3.5 seconds
