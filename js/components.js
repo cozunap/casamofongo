@@ -522,11 +522,18 @@
 
   // Run initialization
   
-  // 6. Proximity / GPS Smart Map Prompt
+  // 6. Proximity / GPS Smart Map Card (Mounted Exclusively on top of Google Map)
   function initProximityWidget() {
-    // Only show if user has not dismissed it in this session
-    if (sessionStorage.getItem('mofongo_proximity_dismissed') === 'true') {
+    const mapWrapper = document.querySelector('.map-container-wrapper');
+    if (!mapWrapper) {
+      // If there is no map on this page (e.g. Menu, About, Gallery), do not render
       return;
+    }
+
+    // Remove legacy static floating card if present to avoid duplicate overlays
+    const legacyCard = mapWrapper.querySelector('.map-floating-card');
+    if (legacyCard) {
+      legacyCard.remove();
     }
 
     const LAT_REST = 39.0095285;
@@ -557,13 +564,12 @@
 
     const widget = document.createElement('div');
     widget.className = 'proximity-widget';
-    widget.setAttribute('role', 'complementary');
+    widget.setAttribute('role', 'region');
     widget.setAttribute('aria-label', t.title);
     widget.innerHTML = `
-      <button class="proximity-close-btn" aria-label="Close">&times;</button>
       <div class="proximity-content">
         <div class="proximity-icon-wrap">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
@@ -590,18 +596,7 @@
       </div>
     `;
 
-    document.body.appendChild(widget);
-
-    // Show after 3.5 seconds
-    setTimeout(() => {
-      widget.classList.add('is-visible');
-    }, 3500);
-
-    // Close button
-    widget.querySelector('.proximity-close-btn').addEventListener('click', () => {
-      widget.classList.remove('is-visible');
-      sessionStorage.setItem('mofongo_proximity_dismissed', 'true');
-    });
+    mapWrapper.insertBefore(widget, mapWrapper.firstChild);
 
     // Distance calculation on click
     const calcBtn = widget.querySelector('#prox-calc-btn');
@@ -636,10 +631,10 @@
 
           if (distance <= 5.0) {
             titleEl.textContent = t.milesAway.replace('{dist}', distance.toFixed(1));
-            descEl.textContent = '9441 Georgia Ave &bull; ' + (distance <= 1.5 ? (isSpanish ? '¡Llegas en 3 minutos!' : '3 min drive!') : (isSpanish ? '¡Llegas en minutos!' : 'Minutes away!'));
+            descEl.innerHTML = '9441 Georgia Ave &bull; ' + (distance <= 1.5 ? (isSpanish ? '¡Llegas en 3 minutos!' : '3 min drive!') : (isSpanish ? '¡Llegas en minutos!' : 'Minutes away!'));
           } else {
             titleEl.textContent = t.farAway;
-            descEl.textContent = t.desc;
+            descEl.innerHTML = t.desc;
           }
           calcBtn.style.display = 'none';
         },
