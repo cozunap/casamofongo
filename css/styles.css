@@ -1242,6 +1242,7 @@ img {
 
 /* Goals Banner Flush Layout */
 .goals-banner-bar {
+  background: var(--color-primary);
   padding: 0 !important;
   overflow: hidden;
   position: relative;
@@ -1261,18 +1262,18 @@ img {
 
 .responsive-goals-grid {
   display: grid;
-  grid-template-columns: 1fr clamp(320px, 38vw, 520px);
-  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
   align-items: stretch;
-  min-height: 240px;
+  min-height: 280px;
 }
 
 .goals-text-col {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 3rem 2rem 3rem clamp(2rem, 5vw, 4.5rem);
-  max-width: 750px;
+  padding: 3.5rem clamp(2rem, 5vw, 5rem);
+  max-width: 100%;
   margin: 0;
   text-align: left !important;
 }
@@ -1283,16 +1284,16 @@ img {
   height: 100%;
   position: relative;
   overflow: hidden;
-  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
-  -webkit-clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .goals-dish-flush-img {
   width: 100%;
   height: 100%;
-  min-height: 220px;
+  min-height: 280px;
   object-fit: cover;
-  object-position: 70% center;
+  object-position: center center;
   display: block;
 }
 
