@@ -171,11 +171,13 @@ img {
 }
 
 .nav-link {
+  font-family: Montserrat, sans-serif;
   font-size: 12px;
-  font-weight: 400 !important;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  font-weight: 500 !important;
+  line-height: 20px;
+  letter-spacing: 1.44px;
   color: #ffffff;
+  text-transform: uppercase;
   position: relative;
   padding: 0.5rem 0;
   transition: color var(--transition-smooth);
