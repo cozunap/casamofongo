@@ -1261,42 +1261,20 @@ img {
 
 .responsive-goals-grid {
   display: grid;
-  grid-template-columns: minmax(240px, 300px) 1fr clamp(320px, 35vw, 500px);
-  gap: 1.5rem;
+  grid-template-columns: 1fr clamp(320px, 38vw, 520px);
+  gap: 2rem;
   align-items: stretch;
   min-height: 240px;
-}
-
-.goals-beer-col {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 0 1rem clamp(1rem, 3vw, 2.5rem);
-}
-
-.goals-beer-img {
-  width: 100%;
-  max-width: 280px;
-  max-height: 220px;
-  height: auto;
-  object-fit: contain;
-  margin: 0 auto;
-  display: block;
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.4));
-  transition: transform 0.3s ease;
-}
-
-.goals-beer-img:hover {
-  transform: scale(1.05) rotate(-2deg);
 }
 
 .goals-text-col {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2.25rem 1rem;
-  max-width: 650px;
-  margin: 0 auto;
+  padding: 3rem 2rem 3rem clamp(2rem, 5vw, 4.5rem);
+  max-width: 750px;
+  margin: 0;
+  text-align: left !important;
 }
 
 .goals-dish-col {
@@ -1723,15 +1701,9 @@ img {
     text-align: center;
     gap: 1.5rem;
   }
-  .goals-beer-col {
-    padding: 2rem 1.5rem 0.5rem;
-  }
-  .goals-beer-img {
-    max-width: 220px;
-    max-height: 180px;
-  }
   .goals-text-col {
-    padding: 0 1.5rem;
+    padding: 2.5rem 1.5rem 1.5rem;
+    text-align: center !important;
   }
   .goals-dish-col {
     height: 220px;
