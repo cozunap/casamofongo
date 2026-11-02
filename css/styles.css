@@ -36,6 +36,8 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -46,15 +48,27 @@ body {
   line-height: 1.65;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.section-title,
+.page-hero-title,
+.home-hero-title,
+.menu-card-title,
+.classic-menu-col-title,
+.story-content h2,
+.footer-col h4,
+.map-card-info h4,
+.proximity-title {
+  font-family: var(--font-display) !important;
   font-weight: 900 !important;
   text-transform: uppercase !important;
-  color: var(--color-text-main);
   line-height: 1.2;
   letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
 }
 
 p {
@@ -1012,9 +1026,9 @@ img {
 }
 
 .footer-col h4 {
-  font-family: var(--font-sans);
+  font-family: var(--font-display);
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 900 !important;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: #ffffff;
@@ -1172,11 +1186,11 @@ img {
 }
 
 .map-card-info h4 {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 1.05rem;
   color: #ffffff;
   margin-bottom: 0.25rem;
-  font-weight: 700;
+  font-weight: 900 !important;
   letter-spacing: 0.02em;
 }
 
@@ -1854,9 +1868,9 @@ img {
 }
 
 .proximity-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: 1.05rem;
-  font-weight: 700;
+  font-weight: 900 !important;
   color: #ffffff;
   margin: 0 0 0.25rem 0;
   line-height: 1.25;
