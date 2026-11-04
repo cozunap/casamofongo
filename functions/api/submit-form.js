@@ -1,6 +1,6 @@
 export async function onRequestPost(context) {
   try {
-    const { request, env } = context;
+    const { request } = context;
     const body = await request.json().catch(() => null);
 
     if (!body) {
@@ -28,25 +28,24 @@ export async function onRequestPost(context) {
       message: message || ''
     };
 
-    // Forward to Google Apps Script endpoint if configured
-    const gasUrl = (env && env.GOOGLE_SCRIPT_URL) || 
-      'https://script.google.com/macros/s/AKfycbzFw3vO-0s_v_cmofongo_mailer_placeholder/exec';
+    // Google Apps Script production deployment URL
+    const gasUrl = 'https://script.google.com/macros/s/AKfycbwkP_BaQmJUigJm4NobnDiuayQcw5PZv4b6D6dwdj0UcuCYDBnOjLZVGOW3i21IMUT2/exec';
 
-    if (gasUrl && !gasUrl.includes('placeholder')) {
-      try {
-        await fetch(gasUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(mailPayload)
-        });
-      } catch (relayError) {
-        console.error('Google Apps Script relay error:', relayError);
-      }
-    }
+    // Send securely from Cloudflare backend to Google Apps Script
+    const gasResponse = await fetch(gasUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8'
+      },
+      body: JSON.stringify(mailPayload)
+    });
+
+    const gasResult = await gasResponse.text().catch(() => '');
 
     return new Response(JSON.stringify({ 
       success: true, 
-      message: 'Form submitted successfully' 
+      message: 'Form submitted and delivered successfully',
+      receipt: gasResult.substring(0, 50)
     }), {
       status: 200,
       headers: {
