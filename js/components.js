@@ -191,6 +191,7 @@
       };
 
       const resName = form.querySelector('#res-name');
+      const resEmail = form.querySelector('#res-email');
       const resPhone = form.querySelector('#res-phone');
       const resGuests = form.querySelector('#res-guests');
       const resDate = form.querySelector('#res-date');
@@ -198,6 +199,7 @@
       const resRequests = form.querySelector('#res-requests');
 
       if (resName) payload.name = resName.value;
+      if (resEmail) payload.email = resEmail.value;
       if (resPhone) payload.phone = resPhone.value;
       if (resGuests) payload.guests = resGuests.value;
       if (resDate) payload.date = resDate.value;
