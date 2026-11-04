@@ -236,9 +236,11 @@
           successMsg.style.display = 'block';
         }
         form.reset();
-        setTimeout(() => {
-          if (successMsg) successMsg.style.display = 'none';
-        }, 6000);
+
+        // Redirect to thank you page with 5-second return
+        const isEsp = window.location.pathname.startsWith('/es/') || window.location.pathname === '/es';
+        const thankYouUrl = isEsp ? '/es/thank-you.html' : '/thank-you.html';
+        window.location.href = thankYouUrl;
       }
     });
   });
