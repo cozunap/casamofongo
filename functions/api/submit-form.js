@@ -11,61 +11,42 @@ export async function onRequestPost(context) {
     }
 
     const { formType, name, phone, email, date, time, guests, requests, subject, message } = body;
-
-    // Secure destination email kept purely on server side
     const destinationEmail = 'mofongomd@gmail.com';
 
-    // Build plain text and HTML representation of submission
-    const isReservation = formType === 'reservation';
-    const emailSubject = isReservation
-      ? `[Nueva Reservación] La Casa Del Mofongo: ${name || 'Cliente'} (${date || 'Sin fecha'})`
-      : `[Nuevo Mensaje de Contacto] La Casa Del Mofongo: ${name || 'Cliente'} - ${subject || 'Consulta'}`;
-
-    const submissionData = {
-      timestamp: new Date().toISOString(),
-      formType: isReservation ? 'Online Table Reservation' : 'Contact / Inquiry Message',
+    // Payload formatted for Google Apps Script Mailer
+    const mailPayload = {
+      formType: formType || 'contact',
       recipient: destinationEmail,
-      details: {
-        name: name || 'N/A',
-        phone: phone || 'N/A',
-        email: email || 'N/A',
-        ...(isReservation
-          ? {
-              date: date || 'N/A',
-              time: time || 'N/A',
-              guests: guests || 'N/A',
-              specialRequests: requests || 'None'
-            }
-          : {
-              subject: subject || 'General',
-              message: message || 'N/A'
-            })
-      }
+      name: name || '',
+      phone: phone || '',
+      email: email || '',
+      date: date || '',
+      time: time || '',
+      guests: guests || '',
+      requests: requests || '',
+      subject: subject || '',
+      message: message || ''
     };
 
-    // Log internally on Cloudflare Functions dashboard
-    console.log(`[Form Submission to ${destinationEmail}]`, JSON.stringify(submissionData));
+    // Forward to Google Apps Script endpoint if configured
+    const gasUrl = (env && env.GOOGLE_SCRIPT_URL) || 
+      'https://script.google.com/macros/s/AKfycbzFw3vO-0s_v_cmofongo_mailer_placeholder/exec';
 
-    // Optional native webhook/relay if configured via Cloudflare Environment Variable
-    if (env && env.MAILER_WEBHOOK_URL) {
+    if (gasUrl && !gasUrl.includes('placeholder')) {
       try {
-        await fetch(env.MAILER_WEBHOOK_URL, {
+        await fetch(gasUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            to: destinationEmail,
-            subject: emailSubject,
-            ...submissionData
-          })
+          body: JSON.stringify(mailPayload)
         });
-      } catch (err) {
-        console.error('Webhook relay failed:', err);
+      } catch (relayError) {
+        console.error('Google Apps Script relay error:', relayError);
       }
     }
 
     return new Response(JSON.stringify({ 
       success: true, 
-      message: 'Submission received successfully' 
+      message: 'Form submitted successfully' 
     }), {
       status: 200,
       headers: {
