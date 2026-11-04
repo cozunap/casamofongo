@@ -172,78 +172,100 @@
   }
 
   // 3. Simple Form Handlers (Serverless Backend Integration)
-  const forms = document.querySelectorAll('form[data-ajax-form]');
-  forms.forEach(form => {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+  function initFormHandlers() {
+    const forms = document.querySelectorAll('form[data-ajax-form]');
+    forms.forEach(form => {
+      if (form.getAttribute('data-handler-bound') === 'true') return;
+      form.setAttribute('data-handler-bound', 'true');
+
+      // Set fallback action and method
+      const isEspPath = window.location.pathname.startsWith('/es/') || window.location.pathname === '/es';
+      const thankYouTarget = isEspPath ? '/es/thank-you.html' : '/thank-you.html';
+      form.setAttribute('action', thankYouTarget);
+      form.setAttribute('method', 'POST');
+
+      // Handle direct button click as well to guarantee immediate trigger
       const submitBtn = form.querySelector('button[type="submit"]');
-      const originalBtnText = submitBtn ? submitBtn.textContent : '';
-      const successMsg = form.querySelector('.form-success-msg');
 
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = '...';
-      }
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const originalBtnText = submitBtn ? submitBtn.textContent : '';
+        const successMsg = form.querySelector('.form-success-msg');
 
-      // Collect data safely without exposing recipient email
-      const payload = {
-        formType: form.classList.contains('reservation-form') ? 'reservation' : 'contact'
-      };
-
-      const resName = form.querySelector('#res-name');
-      const resEmail = form.querySelector('#res-email');
-      const resPhone = form.querySelector('#res-phone');
-      const resGuests = form.querySelector('#res-guests');
-      const resDate = form.querySelector('#res-date');
-      const resTime = form.querySelector('#res-time');
-      const resRequests = form.querySelector('#res-requests');
-
-      if (resName) payload.name = resName.value;
-      if (resEmail) payload.email = resEmail.value;
-      if (resPhone) payload.phone = resPhone.value;
-      if (resGuests) payload.guests = resGuests.value;
-      if (resDate) payload.date = resDate.value;
-      if (resTime) payload.time = resTime.value;
-      if (resRequests) payload.requests = resRequests.value;
-
-      // Contact form fields
-      const contactName = form.querySelector('input[placeholder*="Rivera"]');
-      const contactEmail = form.querySelector('input[type="email"]');
-      const contactPhone = form.querySelector('input[type="tel"]:not(#res-phone)');
-      const contactSubject = form.querySelector('select:not(#res-guests)');
-      const contactMsg = form.querySelector('textarea');
-
-      if (contactName) payload.name = contactName.value;
-      if (contactEmail) payload.email = contactEmail.value;
-      if (contactPhone) payload.phone = contactPhone.value;
-      if (contactSubject) payload.subject = contactSubject.value;
-      if (contactMsg) payload.message = contactMsg.value;
-
-      try {
-        await fetch('/api/submit-form', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-      } catch (err) {
-        console.warn('Form submission handled locally:', err);
-      } finally {
         if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = originalBtnText;
+          submitBtn.disabled = true;
+          submitBtn.textContent = isEspPath ? 'Enviando...' : 'Sending...';
         }
-        if (successMsg) {
-          successMsg.style.display = 'block';
-        }
-        form.reset();
 
-        // Redirect to thank you page with 5-second return
-        const isEsp = window.location.pathname.startsWith('/es/') || window.location.pathname === '/es';
-        const thankYouUrl = isEsp ? '/es/thank-you.html' : '/thank-you.html';
-        window.location.href = thankYouUrl;
-      }
+        // Collect data safely without exposing recipient email
+        const isReservation = form.classList.contains('reservation-form');
+        const payload = {
+          formType: isReservation ? 'reservation' : 'contact'
+        };
+
+        const resName = form.querySelector('#res-name');
+        const resEmail = form.querySelector('#res-email');
+        const resPhone = form.querySelector('#res-phone');
+        const resGuests = form.querySelector('#res-guests');
+        const resDate = form.querySelector('#res-date');
+        const resTime = form.querySelector('#res-time');
+        const resRequests = form.querySelector('#res-requests');
+
+        if (resName) payload.name = resName.value;
+        if (resEmail) payload.email = resEmail.value;
+        if (resPhone) payload.phone = resPhone.value;
+        if (resGuests) payload.guests = resGuests.value;
+        if (resDate) payload.date = resDate.value;
+        if (resTime) payload.time = resTime.value;
+        if (resRequests) payload.requests = resRequests.value;
+
+        // Contact form fields
+        const contactName = form.querySelector('input[placeholder*="Rivera"]');
+        const contactEmail = form.querySelector('input[type="email"]');
+        const contactPhone = form.querySelector('input[type="tel"]:not(#res-phone)');
+        const contactSubject = form.querySelector('select:not(#res-guests)');
+        const contactMsg = form.querySelector('textarea');
+
+        if (contactName) payload.name = contactName.value;
+        if (contactEmail) payload.email = contactEmail.value;
+        if (contactPhone) payload.phone = contactPhone.value;
+        if (contactSubject) payload.subject = contactSubject.value;
+        if (contactMsg) payload.message = contactMsg.value;
+
+        // Execute fetch with timeout so slow network never hangs redirect
+        const fetchController = new AbortController();
+        const timeoutId = setTimeout(() => fetchController.abort(), 3500);
+
+        try {
+          await fetch('/api/submit-form', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+            signal: fetchController.signal
+          });
+          clearTimeout(timeoutId);
+        } catch (err) {
+          console.warn('Form submission proceeding:', err);
+        } finally {
+          clearTimeout(timeoutId);
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+          }
+          if (successMsg) {
+            successMsg.style.display = 'block';
+          }
+          form.reset();
+
+          // Redirect to thank you page with 5-second return
+          window.location.href = thankYouTarget;
+        }
+      });
     });
-  });
+  }
+
+  // Initialize form handlers immediately
+  initFormHandlers();
 
   // 4. Hero Slider Implementation
   const heroSlider = document.getElementById('home-hero-slider');
@@ -802,6 +824,7 @@
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
+      initFormHandlers();
       init3DEffects();
       initGalleryLightbox();
       initDishesCarousel();
@@ -811,6 +834,7 @@ if (document.readyState === 'loading') {
       initFloatingSocialSidebar();
     });
   } else {
+    initFormHandlers();
     init3DEffects();
     initGalleryLightbox();
     initDishesCarousel();
