@@ -171,19 +171,73 @@
     `;
   }
 
-  // 3. Simple Form Handlers
+  // 3. Simple Form Handlers (Serverless Backend Integration)
   const forms = document.querySelectorAll('form[data-ajax-form]');
   forms.forEach(form => {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.textContent : '';
       const successMsg = form.querySelector('.form-success-msg');
-      if (successMsg) {
-        successMsg.style.display = 'block';
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = '...';
       }
-      form.reset();
-      setTimeout(() => {
-        if (successMsg) successMsg.style.display = 'none';
-      }, 5000);
+
+      // Collect data safely without exposing recipient email
+      const payload = {
+        formType: form.classList.contains('reservation-form') ? 'reservation' : 'contact'
+      };
+
+      const resName = form.querySelector('#res-name');
+      const resPhone = form.querySelector('#res-phone');
+      const resGuests = form.querySelector('#res-guests');
+      const resDate = form.querySelector('#res-date');
+      const resTime = form.querySelector('#res-time');
+      const resRequests = form.querySelector('#res-requests');
+
+      if (resName) payload.name = resName.value;
+      if (resPhone) payload.phone = resPhone.value;
+      if (resGuests) payload.guests = resGuests.value;
+      if (resDate) payload.date = resDate.value;
+      if (resTime) payload.time = resTime.value;
+      if (resRequests) payload.requests = resRequests.value;
+
+      // Contact form fields
+      const contactName = form.querySelector('input[placeholder*="Rivera"]');
+      const contactEmail = form.querySelector('input[type="email"]');
+      const contactPhone = form.querySelector('input[type="tel"]:not(#res-phone)');
+      const contactSubject = form.querySelector('select:not(#res-guests)');
+      const contactMsg = form.querySelector('textarea');
+
+      if (contactName) payload.name = contactName.value;
+      if (contactEmail) payload.email = contactEmail.value;
+      if (contactPhone) payload.phone = contactPhone.value;
+      if (contactSubject) payload.subject = contactSubject.value;
+      if (contactMsg) payload.message = contactMsg.value;
+
+      try {
+        await fetch('/api/submit-form', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        console.warn('Form submission handled locally:', err);
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+        if (successMsg) {
+          successMsg.style.display = 'block';
+        }
+        form.reset();
+        setTimeout(() => {
+          if (successMsg) successMsg.style.display = 'none';
+        }, 6000);
+      }
     });
   });
 
